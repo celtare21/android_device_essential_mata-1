@@ -182,5 +182,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Vol steps
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=14 \
-    ro.config.media_vol_steps=30 \
+    ro.config.media_vol_steps=25 \
     audio.safemedia.bypass=true
