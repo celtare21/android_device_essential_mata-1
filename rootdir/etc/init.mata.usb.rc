@@ -111,3 +111,4 @@ on early-boot
 
 on boot
     setprop sys.usb.configfs 2
+    setprop sys.usb.ffs.aio_compat 1
