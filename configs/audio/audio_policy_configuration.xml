@@ -171,7 +171,7 @@
                 <route type="mix" sink="Telephony Tx"
                        sources="voice_tx,incall_music_uplink"/>
                 <route type="mix" sink="primary input"
-                       sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,Telephony Rx,USB Headset In"/>
+                       sources="Built-In Back Mic,BT SCO Headset Mic,Telephony Rx,USB Headset In"/>
                 <route type="mix" sink="fast input"
                        sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,USB Headset In"/>
                 <route type="mix" sink="hifi_input" sources="USB Headset In" />
