@@ -36,7 +36,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.flinger_standbytime_ms=300 \
     audio.deep_buffer.media=true \
     audio.offload.min.duration.secs=30 \
-    audio.offload.video=true
+    audio.offload.video=true \
+    ro.af.client_heap_size_kbyte=7168
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
