@@ -788,7 +788,7 @@ service vendor.qseecomd /vendor/bin/qseecomd
 service vendor.qti /vendor/bin/qti
     class main
     user radio
-    group radio net_raw diag usb net_admin
+    group radio oem_2901 diag usb net_admin
     disabled
     writepid /dev/cpuset/system-background/tasks
 
