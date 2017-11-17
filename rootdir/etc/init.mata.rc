@@ -111,7 +111,6 @@ on init
     # Enable bus-dcvs
     write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/governor bw_hwmon
     write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/polling_interval 50
-    write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq 1525
     write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/mbps_zones "3143 5859 11863 13763"
     write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms 4
     write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 34
