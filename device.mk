@@ -409,6 +409,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libtinyxml2
 
+# TFA calibration
+PRODUCT_PACKAGES += \
+    tinyplay
+
 # Update engine
 PRODUCT_PACKAGES += \
     brillo_update_payload \
