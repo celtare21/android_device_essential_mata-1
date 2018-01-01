@@ -614,6 +614,8 @@ on property:sys.boot_completed=1
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
+    start tfa-sh
+
 on property:vendor.usb.config=*
    start usbd
 
@@ -632,6 +634,13 @@ service vendor.adsprpcd /vendor/bin/adsprpcd
     user media
     group media
     writepid /dev/cpuset/system-background/tasks
+
+service tfa-sh /system/bin/init.tfa.sh /etc/silence_short.wav 15 1
+    class main
+    user system
+    group system
+    disabled
+    oneshot
 
 service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start

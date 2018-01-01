@@ -366,6 +366,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
 
+# TFA calibration
+PRODUCT_PACKAGES += \
+    tinyplay
+
 # Update engine
 PRODUCT_PACKAGES += \
     brillo_update_payload \
