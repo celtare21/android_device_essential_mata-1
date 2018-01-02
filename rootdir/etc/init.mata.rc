@@ -313,6 +313,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+    # Create /data/time folder for time-services
+    mkdir /data/time/ 0700 system system
+
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
     chown radio radio /data/vendor/radio/copy_complete
