@@ -124,14 +124,6 @@ on init
     write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
     write /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1600
 
-    write /sys/devices/soc/soc:qcom,memlat-cpu0/devfreq/soc:qcom,memlat-cpu0/governor mem_latency
-    write /sys/devices/soc/soc:qcom,memlat-cpu0/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
-    write /sys/devices/soc/soc:qcom,memlat-cpu0/devfreq/soc:qcom,memlat-cpu0/mem_latency/ratio_ceil 400
-
-    write /sys/devices/soc/soc:qcom,memlat-cpu0/devfreq/soc:qcom,memlat-cpu4/governor mem_latency
-    write /sys/devices/soc/soc:qcom,memlat-cpu0/devfreq/soc:qcom,memlat-cpu4/polling_interval 10
-    write /sys/devices/soc/soc:qcom,memlat-cpu0/devfreq/soc:qcom,memlat-cpu4/mem_latency/ratio_ceil 400
-
     write /sys/devices/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor cpufreq
 
     # Setup permission for powerHAL
