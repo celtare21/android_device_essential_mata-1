@@ -109,7 +109,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.vendor.qti.sys.fw.bg_apps_limit=60 \
     sdm.debug.disable_skip_validate=1 \
-    sdm.perf_hint_window=50
+    sdm.perf_hint_window=50 \
+    sdm.debug.rotator_downscale=1
+
 
 # HDR
 PRODUCT_PROPERTY_OVERRIDES += \
