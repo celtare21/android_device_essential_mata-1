@@ -76,7 +76,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.use_buffer_age=false \
     vendor.gralloc.enable_fb_ubwc=1 \
     vendor.display.disable_skip_validate=1 \
-    vendor.display.perf_hint_window=50
+    vendor.display.perf_hint_window=50 \
+    sdm.debug.rotator_downscale=1
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
