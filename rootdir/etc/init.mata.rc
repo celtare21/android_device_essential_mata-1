@@ -74,6 +74,9 @@ on init
     write /sys/bus/msm_subsys/devices/subsys6/restart_level RELATED
 
 on fs
+    # Start HW service manager early
+    start hwservicemanager
+
     wait /dev/block/platform/soc/1da4000.ufshc
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
     mount_all /vendor/etc/fstab.mata --early
@@ -125,9 +128,6 @@ on fs
     chown system system /persist/rfs/apq
     chown system system /persist/rfs/apq/gnss
 
-    # Start HW service manager early
-    start hwservicemanager
-
     # qseecomd needs /dev/block/bootdevice
     # vold needs keymaster that needs qseecomd
     start vendor.qseecomd
@@ -152,6 +152,10 @@ on late-fs
     start vendor.configstore-hal
     start vendor.gralloc-2-0
 
+    # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
+    # In such case, init won't responce the property_set from hwservicemanager and then
+    # cause services for bootanim not running.
+    wait_for_prop hwservicemanager.ready true
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.mata --late
 
