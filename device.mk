@@ -179,6 +179,7 @@ PRODUCT_PACKAGES += \
     init.mata.ramdump.rc \
     init.mata.rc \
     init.mata.usb.rc \
+    init.performance.mata.rc \
     init.qcom.devstart.sh \
     ueventd.mata.rc
 
