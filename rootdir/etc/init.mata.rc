@@ -27,6 +27,7 @@
 
 import /vendor/etc/init/hw/init.mata.ramdump.rc
 import /vendor/etc/init/hw/init.mata.usb.rc
+import /vendor/etc/init/hw/init.performance.mata.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -41,52 +42,6 @@ on init
     symlink /sdcard /mnt/sdcard
 
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-
-    # Set up schedtune
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 10
-    write /dev/stune/top-app/schedtune.prefer_idle 1
-
-    # disable thermal hotplug for configuration
-    write /sys/module/msm_thermal/core_control/enabled 0
-
-    # bring CPUs online
-    write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu4/online 1
-    write /sys/devices/system/cpu/cpu5/online 1
-    write /sys/devices/system/cpu/cpu6/online 1
-    write /sys/devices/system/cpu/cpu7/online 1
-
-    # configure governor settings for little cluster
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 20000
-
-    # configure governor settings for big cluster
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 20000
-
-    # enable thermal hotplug
-    write /sys/module/msm_thermal/core_control/enabled 1
-
-    # disable retention
-    write /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/cpu1/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/cpu2/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/cpu3/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu4/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu5/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu6/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/cpu7/ret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/pwr-l2-dynret/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled N
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
 
     # ZRAM setup
     write /sys/block/zram0/comp_algorithm lz4
@@ -575,16 +530,7 @@ on property:sys.boot_completed=1
     # Enable ZRAM
     swapon_all /vendor/etc/fstab.mata
 
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
-    write /dev/cpuset/camera-daemon/cpus 0-3
-
     write /dev/kmsg "Boot completed"
-
-    # Reset read ahead for dm-0 and dm-1 to 512kb
-    write /sys/block/dm-0/queue/read_ahead_kb 512
-    write /sys/block/dm-1/queue/read_ahead_kb 512
 
     # WDSP FW boot sysfs node used by STHAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
