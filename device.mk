@@ -314,7 +314,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service.mata
+    android.hardware.power@1.1-service-qti
 
 PRODUCT_COPY_FILES += \
     device/essential/mata/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml

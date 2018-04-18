@@ -4,11 +4,6 @@ on init
     write /sys/devices/soc/1da4000.ufshc/clkgate_enable 0
     write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 0
 
-    # Set up schedtune
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 1
-    write /dev/stune/top-app/schedtune.prefer_idle 1
-
     write /sys/module/lpm_levels/parameters/sleep_disabled Y
 
 on boot
@@ -44,11 +39,6 @@ on late-fs
 
 on property:sys.boot_completed=1
 
-    # set default schedTune value for foreground/top-app (only affects EAS)
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 1
-
     # Disable boot time fs tuning
     write /sys/block/sde/queue/read_ahead_kb 512
     write /sys/block/sde/queue/nr_requests 128
@@ -56,6 +46,41 @@ on property:sys.boot_completed=1
     write /sys/block/sda/queue/read_ahead_kb 1024
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sda/queue/iostats 1
+
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
+
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 100
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 0
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "70 672000:45 825600:50 1036800:60 1248000:70 1478400:85"
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 30000
+
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1574400
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "19000 1400000:39000 1700000:19000 2100000:79000"
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "85 1728000:80 2112000:90 2342400:95"
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 30000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 19000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 39000
+
+    # Disable sched boost
+    write /proc/sys/kernel/sched_boost 0
+    chmod 0444 /proc/sys/kernel/sched_boost
+
+    # Set up big.LITTLE scheduler configuration
+    write /proc/sys/kernel/sched_migration_fixup 1
+    write /proc/sys/kernel/sched_upmigrate 95
+    write /proc/sys/kernel/sched_downmigrate 90
+    write /proc/sys/kernel/sched_group_upmigrate 100
+    write /proc/sys/kernel/sched_group_downmigrate 95
+    write /proc/sys/kernel/sched_select_prev_cpu_us 0
+    write /proc/sys/kernel/sched_freq_inc_notify 400000
+    write /proc/sys/kernel/sched_freq_dec_notify 400000
+    write /proc/sys/kernel/sched_spill_nr_run 5
+    write /proc/sys/kernel/sched_restrict_cluster_spill 1
+    write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
 
     # Enable UFS powersaving
     write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
@@ -65,27 +90,12 @@ on property:sys.boot_completed=1
     # disable thermal core control until CPU is configured
     write /sys/module/msm_thermal/core_control/enabled 0
 
-    # Configure schedutil for big cores
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 20000
-
-    # Configure schedutil for LITTLE cores
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 20000
-
     # CPU is configured, re-enable thermal core control
     write /sys/module/msm_thermal/core_control/enabled 1
 
-    # Ensure minimum frequencies set to 300MHz
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 300000
-
-    # Enable input boost configuration
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800"
-    write /sys/module/cpu_boost/parameters/dynamic_stune_boost 15
-    write /sys/module/cpu_boost/parameters/input_boost_ms 500
+    # Ensure minimum frequencies set to 230MHz
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 230000
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 230000
 
     # Setup power retention
     write /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled N

@@ -266,10 +266,6 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    # Create perfd related dirs
-    mkdir /data/system/perfd 0770 root system
-    chmod 2770 /data/system/perfd
-
     # NFC local data and nfcee xml storage
     mkdir /data/nfc 0770 nfc nfc
     mkdir /data/nfc/param 0770 nfc nfc
@@ -767,13 +763,6 @@ on property:sys.shutdown.requested=*
     # Disable subsystem restart
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x9889deed
 
-service vendor.perfd /vendor/bin/perfd
-   class main
-   user root
-   group root readproc system
-   socket perfd seqpacket 0666 root system
-   disabled
-
 service vendor.port-bridge /vendor/bin/port-bridge
     class main
     user radio
@@ -806,7 +795,6 @@ service vendor.qcom-power /vendor/bin/init.qcom.power.sh
 
 # qcom-power triggers this property
 on property:sys.post_boot.parsed=1
-    start vendor.perfd
 
 service vendor.qcom-sh /vendor/bin/init.qcom.sh
     class late_start
