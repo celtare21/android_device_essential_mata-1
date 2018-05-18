@@ -433,4 +433,8 @@
 
     <!-- Smart Pixels -->
     <bool name="config_enableSmartPixels">false</bool>
+
+    <!-- Make things go fast -->
+    <bool name="config_ui_enableFadingMarquee">false</bool>
+
 </resources>
