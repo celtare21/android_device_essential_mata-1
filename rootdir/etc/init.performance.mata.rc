@@ -6,6 +6,15 @@ on init
 
     write /sys/module/lpm_levels/parameters/sleep_disabled Y
 
+    # Set up schedtune
+    write /dev/stune/background/schedtune.colocate 0
+    write /dev/stune/foreground/schedtune.colocate 0
+    write /dev/stune/foreground/schedtune.sched_boost_no_override 1
+    write /dev/stune/schedtune.colocate 0
+    write /dev/stune/system-background/schedtune.colocate 0
+    write /dev/stune/top-app/schedtune.colocate 1
+    write /dev/stune/top-app/schedtune.sched_boost_no_override 1
+
 on boot
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-3
@@ -47,41 +56,6 @@ on property:sys.boot_completed=1
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sda/queue/iostats 1
 
-write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
-
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 100
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 0
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "70 672000:45 825600:50 1036800:60 1248000:70 1478400:85"
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 30000
-
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1574400
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "19000 1400000:39000 1700000:19000 2100000:79000"
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "85 1728000:80 2112000:90 2342400:95"
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 30000
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 19000
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 39000
-
-    # Disable sched boost
-    write /proc/sys/kernel/sched_boost 0
-    chmod 0444 /proc/sys/kernel/sched_boost
-
-    # Set up big.LITTLE scheduler configuration
-    write /proc/sys/kernel/sched_migration_fixup 1
-    write /proc/sys/kernel/sched_upmigrate 95
-    write /proc/sys/kernel/sched_downmigrate 90
-    write /proc/sys/kernel/sched_group_upmigrate 100
-    write /proc/sys/kernel/sched_group_downmigrate 95
-    write /proc/sys/kernel/sched_select_prev_cpu_us 0
-    write /proc/sys/kernel/sched_freq_inc_notify 400000
-    write /proc/sys/kernel/sched_freq_dec_notify 400000
-    write /proc/sys/kernel/sched_spill_nr_run 5
-    write /proc/sys/kernel/sched_restrict_cluster_spill 1
-    write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
-
     # Enable UFS powersaving
     write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
     write /sys/devices/soc/1da4000.ufshc/clkgate_enable 1
@@ -90,12 +64,49 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 39000
     # disable thermal core control until CPU is configured
     write /sys/module/msm_thermal/core_control/enabled 0
 
-    # CPU is configured, re-enable thermal core control
-    write /sys/module/msm_thermal/core_control/enabled 1
+    # online little cluster
+    write /sys/devices/system/cpu/cpu0/online 1
+    # configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 100
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "70 672000:45 825600:50 1036800:60 1248000:70 1478400:85"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 30000
+
+    # online big cluster
+    write /sys/devices/system/cpu/cpu4/online 1
+    # configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1574400
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "19000 1400000:39000 1700000:19000 2100000:79000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "85 1728000:80 2112000:90 2342400:95"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 30000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 19000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 39000
 
     # Ensure minimum frequencies set to 230MHz
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 230000
     write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 230000
+
+    # Input boost configuration
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800 4:0"
+    write /sys/module/cpu_boost/parameters/input_boost_ms 150
+
+    # Core Control
+    write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 2
+    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
+    write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 4
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
+    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
+    write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
+
+    # CPU is configured, re-enable thermal core control
+    write /sys/module/msm_thermal/core_control/enabled 1
 
     # Setup power retention
     write /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled N
@@ -126,3 +137,17 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 39000
 
     # Enable Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,55296,80640"
+
+    # Set up big.LITTLE scheduler configuration
+    write /proc/sys/kernel/sched_migration_fixup 1
+    write /proc/sys/kernel/sched_upmigrate 95
+    write /proc/sys/kernel/sched_downmigrate 90
+    write /proc/sys/kernel/sched_group_upmigrate 100
+    write /proc/sys/kernel/sched_group_downmigrate 95
+    write /proc/sys/kernel/sched_select_prev_cpu_us 0
+    write /proc/sys/kernel/sched_freq_inc_notify 400000
+    write /proc/sys/kernel/sched_freq_dec_notify 400000
+    write /proc/sys/kernel/sched_spill_nr_run 5
+    write /proc/sys/kernel/sched_restrict_cluster_spill 1
+
+    stop perfd
