@@ -55,6 +55,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.gralloc.enable_fb_ubwc=1 \
     debug.sf.hw=1 \
+    debug.hwui.use_buffer_age=false \
     dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=196610 \
     ro.qualcomm.cabl=2 \
