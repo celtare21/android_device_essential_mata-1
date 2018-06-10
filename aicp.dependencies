@@ -5,6 +5,16 @@
     "branch": "lineage-15.1"
   },
   {
+    "repository": "AICP/proprietary_vendor_essential",
+    "target_path": "vendor/essential",
+    "branch": "o8.1"
+  },
+  {
+    "repository": "AICP/kernel_essential_msm8998",
+    "target_path": "kernel/essential/msm8998",
+    "branch": "o8.1"
+  },
+  {
     "repository": "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings",
     "branch": "lineage-15.1"
