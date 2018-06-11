@@ -184,3 +184,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=14 \
     ro.config.media_vol_steps=25 \
     audio.safemedia.bypass=true
+
+# Boot
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.shutdown.waittime=500
