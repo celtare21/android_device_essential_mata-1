@@ -18,5 +18,10 @@
     "repository": "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings",
     "branch": "lineage-15.1"
+  },
+  {
+    "repository":  "MindTheGapps/vendor_gapps",
+    "target_path": "vendor/gapps",
+    "branch":      "master"
   }
 ]
