@@ -51,10 +51,10 @@ on property:sys.boot_completed=1
     # Disable boot time fs tuning
     write /sys/block/sde/queue/read_ahead_kb 512
     write /sys/block/sde/queue/nr_requests 128
-    write /sys/block/sde/queue/iostats 1
-    write /sys/block/sda/queue/read_ahead_kb 1024
-    write /sys/block/sda/queue/nr_requests 128
-    write /sys/block/sda/queue/iostats 1
+    write /sys/block/sde/queue/iostats 0
+    write /sys/block/sda/queue/read_ahead_kb 512
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/sda/queue/iostats 0
 
     # Enable UFS powersaving
     write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
@@ -68,32 +68,39 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu0/online 1
     # configure governor settings for little cluster
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 100
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "70 672000:45 825600:50 1036800:60 1248000:70 1478400:85"
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 30000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay "18000 1580000:98000"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 98
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1180000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "80 380000:30 480000:41 580000:29 680000:4 780000:60 1180000:88 1280000:70 1380000:78 1480000:97"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 18000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 180000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/enable_prediction 0
 
     # online big cluster
     write /sys/devices/system/cpu/cpu4/online 1
     # configure governor settings for big cluster
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1574400
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "19000 1400000:39000 1700000:19000 2100000:79000"
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "85 1728000:80 2112000:90 2342400:95"
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 30000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 19000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 39000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 98
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1280000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "18000 1380000:78000 1480000:18000 1580000:98000 1880000:138000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "80 380000:39 580000:58 780000:63 980000:81 1080000:92 1180000:77 1280000:98 1380000:86 1580000:98"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 18000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 180000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/enable_prediction 0
 
     # Ensure minimum frequencies set to 230MHz
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 230000
     write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 230000
 
     # Input boost configuration
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800 4:0"
-    write /sys/module/cpu_boost/parameters/input_boost_ms 150
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1680000 4:0"
+    write /sys/module/cpu_boost/parameters/input_boost_ms 20
 
     # CPU is configured, re-enable thermal core control
     write /sys/module/msm_thermal/core_control/enabled 1
@@ -114,11 +121,10 @@ on property:sys.boot_completed=1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
 
     # Setup cpusets
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 0-3,6-7
-    write /dev/cpuset/foreground/cpus 0-3,6-7
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-3,4-7
+    write /dev/cpuset/foreground/cpus 0-3,4-7
+    write /dev/cpuset/background/cpus 2-3
+    write /dev/cpuset/system-background/cpus 2-3
     write /dev/cpuset/camera-daemon/cpus 0-3
 
     # Disable sched boost
@@ -139,5 +145,10 @@ on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_freq_dec_notify 400000
     write /proc/sys/kernel/sched_spill_nr_run 5
     write /proc/sys/kernel/sched_restrict_cluster_spill 1
+
+    write /proc/sys/kernel/sched_spill_load 90
+    write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
+    write /proc/sys/kernel/sched_init_task_load 40
+    write /proc/sys/kernel/sched_freq_inc_notify 3000000
 
     stop perfd
