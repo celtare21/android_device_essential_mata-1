@@ -16,6 +16,9 @@
 
 DEVICE_PATH := device/essential/mata
 
+# Thermal
+USE_DEVICE_SPECIFIC_THERMAL := true
+
 # Platform
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
