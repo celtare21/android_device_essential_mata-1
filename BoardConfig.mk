@@ -138,7 +138,7 @@ TARGET_USES_INTERACTION_BOOST := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=mata sched_enable_hmp=1 sched_enable_power_aware=1 ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
+BOARD_KERNEL_CMDLINE += service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 cma=32M@0-0xffffffff
 BOARD_KERNEL_BASE := 0x00000000

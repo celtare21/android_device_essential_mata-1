@@ -4,8 +4,6 @@ on init
     write /sys/devices/soc/1da4000.ufshc/clkgate_enable 0
     write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 0
 
-    write /sys/module/lpm_levels/parameters/sleep_disabled Y
-
     # Set up schedtune
     write /dev/stune/background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
@@ -121,7 +119,6 @@ on property:sys.boot_completed=1
     write /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled N
     write /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled N
     write /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled N
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
 
     # Setup cpusets
     write /dev/cpuset/top-app/cpus 0-3,4-7
