@@ -860,7 +860,7 @@ void IPACM_Lan::event_callback(ipa_cm_event_id event, void *param)
 
 			if (ipa_interface_index == ipa_if_num 
 #ifdef FEATURE_L2TP
-				|| is_vlan_event(data->iface_name) ||
+				|| is_vlan_event(data->iface_name)
 				|| (is_l2tp_event(data->iface_name) && ipa_if_cate == ODU_IF)
 #endif
 				)
