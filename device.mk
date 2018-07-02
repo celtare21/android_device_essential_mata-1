@@ -165,6 +165,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.1-service.clearkey \
     move_widevine_data.sh
 
+# Doze mode
+PRODUCT_PACKAGES += \
+    Doze
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1
