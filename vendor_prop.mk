@@ -34,7 +34,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true \
     vendor.fm.a2dp.conc.disabled=true \
-    vendor.voice.path.for.pcm.voip=true
+    vendor.voice.path.for.pcm.voip=true \
+    ro.audio.flinger_standbytime_ms=300
+
 
 # Battery
 PRODUCT_PROPERTY_OVERRIDES += \
