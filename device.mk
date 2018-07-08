@@ -205,7 +205,6 @@ PRODUCT_PACKAGES += \
     init.mata.usb.rc \
     init.performance.mata.rc \
     init.qcom.devstart.sh \
-    init.qcom.power.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \

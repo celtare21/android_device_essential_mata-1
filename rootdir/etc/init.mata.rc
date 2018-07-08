@@ -64,8 +64,6 @@ on init
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
 
-    start vendor.qcom-power
-
     # Setup all the sub-system as related
     write /sys/bus/msm_subsys/devices/subsys0/restart_level RELATED
     write /sys/bus/msm_subsys/devices/subsys1/restart_level RELATED
@@ -788,12 +786,6 @@ on property:sys.qbcharger.enable=false
 
 service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
-    user root
-    disabled
-    oneshot
-
-service vendor.qcom-power /vendor/bin/init.qcom.power.sh
-    class main
     user root
     disabled
     oneshot
