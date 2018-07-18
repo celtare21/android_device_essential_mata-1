@@ -1,4 +1,7 @@
 on init
+    chmod 644 /sys/devices/soc/1da4000.ufshc/clkscale_enable
+    chmod 644 /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable
+
     # Disable UFS powersaving
     write /sys/devices/soc/1da4000.ufshc/clkscale_enable 0
     write /sys/devices/soc/1da4000.ufshc/clkgate_enable 0
@@ -139,15 +142,15 @@ on property:sys.boot_completed=1
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
 
     # Configure memory latencies
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor mem_latency
     write /sys/class/devfreq/soc:qcom,memlat-cpu0/mem_latency/ratio_ceil 400
     write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
 
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,memlat-cpu4/governor mem_latency
     write /sys/class/devfreq/soc:qcom,memlat-cpu4/mem_latency/ratio_ceil 400
     write /sys/class/devfreq/soc:qcom,memlat-cpu4/polling_interval 10
 
-    write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
+    write /sys/class/devfreq/soc:qcom,mincpubw/governor cpufreq
 
     # Setup cpusets
     write /dev/cpuset/top-app/cpus 0-3,4-7
@@ -164,7 +167,6 @@ on property:sys.boot_completed=1
     write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,55296,80640"
 
     # Set up big.LITTLE scheduler configuration
-    write /proc/sys/kernel/sched_migration_fixup 1
     write /proc/sys/kernel/sched_upmigrate 95
     write /proc/sys/kernel/sched_downmigrate 90
     write /proc/sys/kernel/sched_group_upmigrate 100
@@ -179,5 +181,3 @@ on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
     write /proc/sys/kernel/sched_init_task_load 40
     write /proc/sys/kernel/sched_freq_inc_notify 3000000
-
-    stop perfd
