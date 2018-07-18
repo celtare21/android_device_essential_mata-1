@@ -1,0 +1,2 @@
+allow netutils_wrapper netutils_wrapper:capability {sys_admin};
+allow hbtp_cmd hbtp_cmd:capability {sys_admin};
