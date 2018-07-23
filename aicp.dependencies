@@ -23,5 +23,10 @@
     "repository":  "MindTheGapps/vendor_gapps",
     "target_path": "vendor/gapps",
     "branch":      "master"
+  },
+  {
+    "repository":  "celtare21/dragontc-7.0",
+    "target_path": "prebuilts/clang/host/linux-x86/dtc-7.0",
+    "branch":      "dragontc"
   }
 ]
