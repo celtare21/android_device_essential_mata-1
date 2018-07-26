@@ -37,7 +37,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.deep_buffer.media=true \
     audio.offload.min.duration.secs=30 \
     audio.offload.video=true \
-    ro.af.client_heap_size_kbyte=7168
+    ro.af.client_heap_size_kbyte=7168 \
+    persist.vendor.audio.hw.binder.size_kbyte=1024
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
