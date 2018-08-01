@@ -20,7 +20,7 @@
     "branch": "lineage-15.1"
   },
   {
-    "repository":  "MindTheGapps/vendor_gapps",
+    "repository":  "celtare21/gapps",
     "target_path": "vendor/gapps",
     "branch":      "master"
   },
