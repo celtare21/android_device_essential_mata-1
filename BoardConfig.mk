@@ -155,6 +155,7 @@ TARGET_KERNEL_SOURCE := kernel/essential/msm8998
 TARGET_KERNEL_CONFIG := artemis_mata_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := 7.0.0-DragonTC-20180715
+export CROSS_COMPILE_ARM32 = prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
