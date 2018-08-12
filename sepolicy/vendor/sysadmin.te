@@ -25,3 +25,5 @@ dontaudit time_daemon time_daemon:capability {sys_admin};
 dontaudit thermal-engine thermal-engine:capability {sys_admin};
 dontaudit location location:capability {sys_admin};
 dontaudit sensors sensors:capability {sys_admin};
+dontaudit hal_bootctl_default hal_bootctl_default:capability {sys_admin};
+dontaudit init-qcom-devstart-sh init-qcom-devstart-sh:capability {sys_admin};
