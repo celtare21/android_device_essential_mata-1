@@ -1,0 +1,1 @@
+allow thermalserviced thermalserviced:capability { dac_override };
