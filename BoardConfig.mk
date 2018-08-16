@@ -137,7 +137,7 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=mata ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := androidboot.hardware=mata ehci-hcd.park=3 schedstats=disable
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 cma=32M@0-0xffffffff
