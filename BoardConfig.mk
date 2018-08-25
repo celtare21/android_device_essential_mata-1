@@ -103,6 +103,11 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/audio-$(TARGET_QCOM_AUDIO_VARIANT) \
+    hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
+    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
+
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_CAMERA_STUB := true
