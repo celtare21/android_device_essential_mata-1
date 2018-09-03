@@ -450,7 +450,3 @@ PRODUCT_PACKAGES += \
     libwifi-hal-qcom \
     wpa_supplicant \
     wpa_supplicant.conf
-
-#QTIAudio
-PRODUCT_PACKAGES += \
-    QtiAudio
