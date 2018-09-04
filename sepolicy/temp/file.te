@@ -1,0 +1,18 @@
+type firmware_file, fs_type, contextmount_type;
+type bt_firmware_file, fs_type, contextmount_type;
+
+type persist_file, file_type;
+type persist_bluetooth_file, file_type;
+type persist_data_file, file_type;
+type persist_drm_file, file_type;
+type persist_misc_file, file_type;
+type persist_bms_file, file_type;
+type persist_secnvm_file, file_type;
+type sensors_persist_file, file_type;
+type persist_display_file, file_type;
+type persist_usf_file, file_type;
+type persist_qti_fp_file, file_type;
+type persist_alarm_file, file_type;
+type persist_time_file, file_type;
+
+type adsprpcd_file, file_type, mlstrustedobject;

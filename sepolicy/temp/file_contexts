@@ -1,0 +1,23 @@
+# non-hlos mount points
+/firmware                  u:object_r:firmware_file:s0
+/bt_firmware               u:object_r:bt_firmware_file:s0
+
+# persist files
+/persist(/.*)?                                                      u:object_r:persist_file:s0
+/persist/bluetooth(/.*)?                                            u:object_r:persist_bluetooth_file:s0
+/persist/drm(/.*)?                                                  u:object_r:persist_drm_file:s0
+/persist/sensors(/.*)?                                              u:object_r:sensors_persist_file:s0
+/persist/alarm(/.*)?                                                u:object_r:persist_alarm_file:s0
+/persist/time(/.*)?                                                 u:object_r:persist_time_file:s0
+/persist/data(/.*)?                                                 u:object_r:persist_drm_file:s0
+/persist/data/tz(/.*)?                                              u:object_r:persist_drm_file:s0
+/persist/data/sfs(/.*)?                                             u:object_r:persist_drm_file:s0
+/persist/qti_fp(/.*)?                                               u:object_r:persist_qti_fp_file:s0
+/persist/usf(/.*)?                                                  u:object_r:persist_usf_file:s0
+/persist/display(/.*)?                                              u:object_r:persist_display_file:s0
+/persist/misc(/.*)?                                                 u:object_r:persist_misc_file:s0
+/persist/bms(/.*)?                                                  u:object_r:persist_bms_file:s0
+/persist/secnvm(/.*)?                                               u:object_r:persist_secnvm_file:s0
+
+# adsp files
+/dsp(/.*)?						            u:object_r:adsprpcd_file:s0
