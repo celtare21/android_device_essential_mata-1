@@ -148,7 +148,7 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=mata ehci-hcd.park=3 schedstats=disable
+BOARD_KERNEL_CMDLINE := androidboot.hardware=mata ehci-hcd.park=3 schedstats=disable androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 cma=32M@0-0xffffffff
@@ -202,10 +202,16 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 VENDOR_SECURITY_PATCH := 2018-10-05
 
 # SELinux
+<<<<<<< HEAD
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
+=======
+#include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor/temp
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+>>>>>>> bb9c167c... Boardconfig, sepolicy: Permissive and temporary sepolicy
 
 # Timeservice
 BOARD_USES_QC_TIME_SERVICES := true
