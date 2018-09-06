@@ -182,7 +182,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
 
 # Gapps
-$(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
+TARGET_GAPPS_ARCH := arm64
 
 # HDR
 PRODUCT_COPY_FILES += \
