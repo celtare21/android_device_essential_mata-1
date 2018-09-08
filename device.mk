@@ -175,7 +175,11 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
 
 # Gapps
+$(call inherit-product-if-exists, vendor/gapps/config.mk)
 TARGET_GAPPS_ARCH := arm64
+TARGET_MINIMAL_APPS ?= true
+IS_PHONE := true
+
 
 # HDR
 PRODUCT_COPY_FILES += \
