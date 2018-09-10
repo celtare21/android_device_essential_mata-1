@@ -268,6 +268,9 @@ on post-fs-data
     chown root system /dev/sensors
     chmod 660 /dev/sensors
 
+    # Create directory used by bluetooth subsystem
+    mkdir /data/vendor/bluetooth 2770 bluetooth bluetooth
+
     # Create netmgr log dir
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
