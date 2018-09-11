@@ -1,7 +1,6 @@
 subdirs = [
     "health",
     "light",
-    "power",
     "thermal",
     "usb",
     "vibrator",
