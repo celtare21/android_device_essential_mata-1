@@ -202,16 +202,9 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 VENDOR_SECURITY_PATCH := 2018-10-05
 
 # SELinux
-<<<<<<< HEAD
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
-=======
-#include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor/temp
+#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 #BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
->>>>>>> bb9c167c... Boardconfig, sepolicy: Permissive and temporary sepolicy
 
 # Timeservice
 BOARD_USES_QC_TIME_SERVICES := true
