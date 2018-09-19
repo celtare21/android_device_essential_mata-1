@@ -213,6 +213,9 @@ TARGET_RECOVERY_UI_MARGIN_WIDTH := 64
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 
+# RIL
+TARGET_USES_OLD_MNC_FORMAT := true
+
 # Security Patch Level
 VENDOR_SECURITY_PATCH := 2019-01-05
 
