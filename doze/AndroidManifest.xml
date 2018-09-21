@@ -42,7 +42,7 @@
         </receiver>
 
         <service android:name=".DozeService"
-                 android:permission="DozeService">
+                 android:permission="XiaomiDozeService">
         </service>
 
         <activity
