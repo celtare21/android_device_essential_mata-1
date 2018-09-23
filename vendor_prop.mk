@@ -40,7 +40,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Battery
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cutoff_voltage_mv=3400
+    ro.cutoff_voltage_mv=3200
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -68,11 +68,48 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.disable_partial_split=1 \
     ro.opengles.version=196610 \
     ro.qualcomm.cabl=2 \
-    ro.sf.lcd_density=480
+    ro.sf.lcd_density=480 \
+    debug.gralloc.enable_fb_ubwc=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.latch_unsignaled=1 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.display.rotator_downscale=1 \
+    vendor.display.perf_hint_window=50 \
+    vendor.gralloc.enable_fb_ubwc=1
+
+# DPM
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.dpm.feature=1 \
+    persist.vendor.dpm.nsrm.bkg.evt=3955
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/1da4000.ufshc/by-name/frp
+
+# IMS
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.vendor.qti.telephony.vt_cam_interface=1
+
+# Network manager
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.netmgrd.qos.enable=true \
+    persist.data.wda.enable=true \
+    persist.data.df.agg.dl_pkt=10 \
+    persist.data.df.agg.dl_size=4096 \
+    persist.data.df.dev_name=rmnet_usb0 \
+    persist.data.df.dl_mode=5 \
+    persist.data.df.iwlan_mux=9 \
+    persist.data.df.mux_count=8 \
+    persist.data.df.ul_mode=5
+
+# Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
+    sdm.debug.disable_skip_validate=1 \
+    sdm.perf_hint_window=50
 
 # HDR
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -156,4 +193,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=14 \
     ro.config.media_vol_steps=30 \
-    audio.safemedia.bypass=true 
+    audio.safemedia.bypass=true
