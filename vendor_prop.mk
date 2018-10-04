@@ -110,8 +110,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bg_apps_limit=60 \
     sdm.debug.disable_skip_validate=1 \
     sdm.perf_hint_window=50 \
-    sdm.debug.rotator_downscale=1
-
+    sdm.debug.rotator_downscale=1 \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    sys.tp.grip_enable=0
 
 # HDR
 PRODUCT_PROPERTY_OVERRIDES += \
