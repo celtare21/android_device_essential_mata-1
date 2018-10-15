@@ -180,3 +180,6 @@ on property:sys.boot_completed=1
 
     # Enable oom_reaper
     write /sys/module/lowmemorykiller/parameters/oom_reaper 1
+
+    # Lower vfs_cache_pressure
+    write /proc/sys/vm/vfs_cache_pressure 60
