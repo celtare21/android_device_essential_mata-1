@@ -52,10 +52,10 @@ on property:sys.boot_completed=1
     # Disable boot time fs tuning
     write /sys/block/sde/queue/read_ahead_kb 512
     write /sys/block/sde/queue/nr_requests 128
-    write /sys/block/sde/queue/iostats 1
-    write /sys/block/sda/queue/read_ahead_kb 1024
-    write /sys/block/sda/queue/nr_requests 128
-    write /sys/block/sda/queue/iostats 1
+    write /sys/block/sde/queue/iostats 0
+    write /sys/block/sda/queue/read_ahead_kb 512
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/sda/queue/iostats 0
 
     # Enable UFS powersaving
     write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
@@ -103,11 +103,10 @@ on property:sys.boot_completed=1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
 
     # Setup cpusets
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 0-3,6-7
-    write /dev/cpuset/foreground/cpus 0-3,6-7
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-3,4-7
+    write /dev/cpuset/foreground/cpus 0-3,4-7
+    write /dev/cpuset/background/cpus 2-3
+    write /dev/cpuset/system-background/cpus 2-3
     write /dev/cpuset/camera-daemon/cpus 0-3
 
     # Disable sched boost
