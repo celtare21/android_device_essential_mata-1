@@ -8,6 +8,3 @@ r_dir_file(init, sidecar_file)
 allow init sysfs_dm:file { setattr rw_file_perms };
 allow init sysfs_scsi_devices_other:file { setattr rw_file_perms };
 allow init sysfs_scsi_devices_0000:file { setattr rw_file_perms };
-
-# b/70518189 vDSO experiments
-allow init sysfs_vdso:file w_file_perms;
