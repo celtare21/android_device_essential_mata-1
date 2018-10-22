@@ -54,19 +54,19 @@ void CycleCountBackupRestore::ReadFromStorage()
                &sw_bins_[4], &sw_bins_[5], &sw_bins_[6], &sw_bins_[7])
         != kBucketCount)
         LOG(ERROR) << "data format is wrong in the storage file: " << buffer;
-    else
-        LOG(INFO) << "Storage data: " << buffer;
+//    else
+//        LOG(INFO) << "Storage data: " << buffer;
 }
 
 void CycleCountBackupRestore::SaveToStorage()
 {
     char strData[kBuffSize];
 
-    snprintf(strData, kBuffSize, "%d %d %d %d %d %d %d %d",
-             sw_bins_[0], sw_bins_[1], sw_bins_[2], sw_bins_[3],
-             sw_bins_[4], sw_bins_[5], sw_bins_[6], sw_bins_[7]);
+//    snprintf(strData, kBuffSize, "%d %d %d %d %d %d %d %d",
+//             sw_bins_[0], sw_bins_[1], sw_bins_[2], sw_bins_[3],
+//             sw_bins_[4], sw_bins_[5], sw_bins_[6], sw_bins_[7]);
 
-    LOG(INFO) << "Save to Storage: " << strData;
+//    LOG(INFO) << "Save to Storage: " << strData;
 
     if (!android::base::WriteStringToFile(strData, std::string(kSysPersistFile)))
         LOG(ERROR) << "Write file error: " << strerror(errno);
@@ -88,19 +88,19 @@ void CycleCountBackupRestore::ReadFromSRAM()
                &hw_bins_[4], &hw_bins_[5], &hw_bins_[6], &hw_bins_[7])
         != kBucketCount)
         LOG(ERROR) << "Failed to parse SRAM bins: " << buffer;
-    else
-        LOG(INFO) << "SRAM data: " << buffer;
+//    else
+//        LOG(INFO) << "SRAM data: " << buffer;
 }
 
 void CycleCountBackupRestore::SaveToSRAM()
 {
     char strData[kBuffSize];
 
-    snprintf(strData, kBuffSize, "%d %d %d %d %d %d %d %d",
-             hw_bins_[0], hw_bins_[1], hw_bins_[2], hw_bins_[3],
-             hw_bins_[4], hw_bins_[5], hw_bins_[6], hw_bins_[7]);
+//    snprintf(strData, kBuffSize, "%d %d %d %d %d %d %d %d",
+//             hw_bins_[0], hw_bins_[1], hw_bins_[2], hw_bins_[3],
+//             hw_bins_[4], hw_bins_[5], hw_bins_[6], hw_bins_[7]);
 
-    LOG(INFO) << "Save to SRAM: "  << strData ;
+//    LOG(INFO) << "Save to SRAM: "  << strData ;
 
     if (!android::base::WriteStringToFile(strData, std::string(kCycCntFile)))
         LOG(ERROR) << "Write data error: " << strerror(errno);

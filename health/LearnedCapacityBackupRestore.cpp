@@ -48,16 +48,16 @@ void LearnedCapacityBackupRestore::ReadFromStorage() {
 
     if (sscanf(buffer.c_str(), "%d", &sw_cap_) < 1)
         LOG(ERROR) << "data format is wrong in the storage file: " << buffer;
-    else
-        LOG(INFO) << "Storage data: " << buffer;
+//    else
+//        LOG(INFO) << "Storage data: " << buffer;
 }
 
 void LearnedCapacityBackupRestore::SaveToStorage() {
     char strData[kBuffSize];
 
-    snprintf(strData, kBuffSize, "%d", sw_cap_);
+//    snprintf(strData, kBuffSize, "%d", sw_cap_);
 
-    LOG(INFO) << "Save to Storage: " << strData;
+//    LOG(INFO) << "Save to Storage: " << strData;
 
     if (!android::base::WriteStringToFile(strData, std::string(kSysCFPersistFile)))
         LOG(ERROR) << "Write file error: " << strerror(errno);
@@ -75,16 +75,16 @@ void LearnedCapacityBackupRestore::ReadFromSRAM() {
 
     if (sscanf(buffer.c_str(), "%d", &hw_cap_) < 1)
         LOG(ERROR) << "Failed to parse SRAM bins: " << buffer;
-    else
-        LOG(INFO) << "SRAM data: " << buffer;
+//    else
+//        LOG(INFO) << "SRAM data: " << buffer;
 }
 
 void LearnedCapacityBackupRestore::SaveToSRAM() {
     char strData[kBuffSize];
 
-    snprintf(strData, kBuffSize, "%d", hw_cap_);
+//    snprintf(strData, kBuffSize, "%d", hw_cap_);
 
-    LOG(INFO) << "Save to SRAM: " << strData;
+//    LOG(INFO) << "Save to SRAM: " << strData;
 
     if (!android::base::WriteStringToFile(strData, std::string(kChgFullFile)))
         LOG(ERROR) << "Write data error: " << strerror(errno);
