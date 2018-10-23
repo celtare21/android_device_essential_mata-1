@@ -10,7 +10,7 @@
 /dev/block/zram0                         none               swap   defaults                                         zramsize=536870912,max_comp_streams=4
 
 /dev/block/bootdevice/by-name/system     /                  ext4   ro,barrier=1                                     wait,slotselect,verify
-/dev/block/bootdevice/by-name/userdata   /data              ext4   noatime,nosuid,nodev,barrier=1,noauto_da_alloc,journal_async_commit,data=writeback,discard,commit=300   latemount,wait,check,formattable,encryptable=footer,length=-16384,reservedsize=128M
+/dev/block/bootdevice/by-name/userdata   /data              ext4   noatime,nosuid,nodev,barrier=1,noauto_da_alloc,journal_async_commit,data=writeback,discard,commit=300   latemount,wait,check,formattable,encryptable=footer,length=-16384,quota,reservedsize=128M
 /dev/block/bootdevice/by-name/userdata   /data              f2fs   noatime,nosuid,nodev,nodiratime,discard,fsync_mode=nobarrier,inline_xattr,inline_data,data_flush   latemount,wait,check,formattable,encryptable=footer,length=-16384,quota,reservedsize=128M
 
 /dev/block/bootdevice/by-name/bluetooth  /bt_firmware       vfat   ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait,slotselect
