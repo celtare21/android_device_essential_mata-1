@@ -676,8 +676,8 @@ service vendor.ipacm /vendor/bin/ipacm
 
 service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
     class main
-    user system
-    group radio diag inet log
+    user radio
+    group radio vendor_qti_diag inet log
     disabled
     writepid /dev/cpuset/system-background/tasks
 
