@@ -208,6 +208,7 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 # Security Patch Level
 VENDOR_SECURITY_PATCH := 2018-10-05
 
+SELINUX_IGNORE_NEVERALLOWS := true
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
