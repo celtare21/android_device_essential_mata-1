@@ -136,15 +136,15 @@ TARGET_HAS_HDR_DISPLAY := true
 TARGET_HAS_WIDE_COLOR_DISPLAY := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
-# Enable dex-preoptimization to speed up first boot sequence
+# Dexpreopt
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
     ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
     endif
   endif
 endif
-
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
