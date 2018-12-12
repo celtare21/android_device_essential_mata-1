@@ -39,7 +39,7 @@
 #include <linux/netfilter/nfnetlink_compat.h>
 
 /* External Includes */
-#include <log/log.h>
+#include <cutils/log.h>
 #include <cstring>
 #include <sys/socket.h>
 #include <sys/types.h>
