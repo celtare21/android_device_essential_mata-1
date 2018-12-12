@@ -33,7 +33,7 @@
 
 /* External Includes */
 #include <arpa/inet.h>
-#include <log/log.h>
+#include <cutils/log.h>
 
 /* HIDL Includes */
 #include <android/hardware/tetheroffload/control/1.0/ITetheringOffloadCallback.h>
@@ -78,7 +78,10 @@ void CtUpdateAmbassador::updateTimeout(IpaNatTimeoutUpdate in) {
          */
         ALOGE("Failed to translate timeout event :(");
     } else {
-        mFramework->updateTimeout(out);
+        auto ret = mFramework->updateTimeout(out);
+        if (!ret.isOk()) {
+            ALOGE("Triggering updateTimeout Callback failed.");
+        }
     }
 } /* updateTimeout */
 
