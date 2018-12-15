@@ -44,7 +44,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist="org.codeaurora.snapcam,com.essential.klik,org.lineageos.snap" \
+    vendor.camera.aux.packagelist="org.codeaurora.snapcam,com.essential.klik,org.lineageos.snap,com.google.android.GoogleCamera" \
     persist.camera.camera2=true \
     persist.camera.expose.aux=1 \
     persist.camera.is_type=4 \
