@@ -120,3 +120,6 @@ on property:sys.boot_completed=1
 
     # Enable Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,55296,80640"
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
