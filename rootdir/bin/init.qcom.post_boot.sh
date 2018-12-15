@@ -72,3 +72,6 @@ case "$console_config" in
         echo "Enable console config to $console_config"
         ;;
 esac
+
+# Signal perfd that boot has completed
+setprop sys.post_boot.parsed 1
