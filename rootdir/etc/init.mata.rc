@@ -596,6 +596,13 @@ on property:ro.boot.carrier.sku=*
 on property:sys.boot_completed=1
     # Enable ZRAM
     swapon_all /vendor/etc/fstab.mata
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 100
+    write /sys/block/zram0/comp_algorithm lz4
+    write /sys/module/zswap/parameters/compressor lz4
+    write /sys/module/zswap/parameters/zpool zsmalloc
+    write /sys/module/zswap/parameters/max_pool_percent 35
+    write /sys/module/zswap/parameters/enabled 1
 
     write /dev/kmsg "Boot completed"
 
