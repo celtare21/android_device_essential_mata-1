@@ -16,4 +16,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <bool name="config_enableManualSubProvisioning">true</bool>
+
+    <!-- Whether to show Connected MAC Randomization in Developer Options. -->
+    <bool name="config_wifi_support_connected_mac_randomization">true</bool>
 </resources>
