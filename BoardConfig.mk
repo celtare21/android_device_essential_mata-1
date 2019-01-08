@@ -183,6 +183,9 @@ TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := 8.0.6
 export CROSS_COMPILE_ARM32 = prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
 
+# IPA
+USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
