@@ -877,4 +877,4 @@ vendor/bin/hw/android.hardware.vibrator@1.2-service.mata
 vendor/etc/init/android.hardware.vibrator@1.2-service.mata.rc
 
 # Wi-Fi
-vendor/bin/cnss-daemon
+vendor/bin/cnss-daemon|6c493343c4e1ef3642579a8033c4c0d65eb7e22a
