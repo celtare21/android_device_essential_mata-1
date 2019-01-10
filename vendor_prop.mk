@@ -37,7 +37,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.min.duration.secs=30 \
     audio.offload.video=true \
     ro.af.client_heap_size_kbyte=7168 \
-    persist.vendor.audio.hw.binder.size_kbyte=1024
+    persist.vendor.audio.hw.binder.size_kbyte=1024 \
+    ro.bluetooth.a2dp_offload.supported=true \
+    persist.bluetooth.a2dp_offload.disabled=false \
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
+    audio.volume.headset.gain.depcal=true \
+    persist.audio.fluence.voicecomm=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
