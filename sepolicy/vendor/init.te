@@ -7,4 +7,9 @@ allow init neko_device:chr_file { r_file_perms setattr };
 allow init sidecar_file:{ dir file } setattr;
 allow init sysfs_graphics:lnk_file { r_file_perms setattr };
 allow init sysfs_scsi_devices_0000:{ dir file } relabelfrom;
+allow init vendor_file:file execute_no_trans;
+allow init hwservicemanager:binder { call transfer };
+allow init hal_power_hwservice:hwservice_manager add;
+allow init sysfs_devfreq:file write;
+allow init device_latency:chr_file open;
 r_dir_file(init, sidecar_file)
