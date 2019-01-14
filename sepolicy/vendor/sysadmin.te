@@ -7,7 +7,6 @@ dontaudit hal_perf_default hal_perf_default:capability {sys_admin};
 dontaudit irsc_util irsc_util:capability {sys_admin};
 dontaudit healthd healthd:capability {sys_admin};
 dontaudit rmt_storage rmt_storage:capability {sys_admin};
-dontaudit pd_mapper pd_mapper:capability {sys_admin};
 dontaudit lmkd lmkd:capability {sys_admin};
 dontaudit rfs_access rfs_access:capability {sys_admin};
 dontaudit hal_wifi_supplicant_default hal_wifi_supplicant_default:capability {sys_admin};
