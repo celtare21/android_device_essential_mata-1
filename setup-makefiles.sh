@@ -27,9 +27,9 @@ INITIAL_COPYRIGHT_YEAR=2017
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-AICP_ROOT="$MY_DIR"/../../..
+AOSIP_ROOT="$MY_DIR"/../../..
 
-HELPER="$AICP_ROOT"/vendor/aicp/build/tools/extract_utils.sh
+HELPER="$AOSIP_ROOT"/vendor/aosip/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -37,7 +37,7 @@ fi
 . "$HELPER"
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$AICP_ROOT"
+setup_vendor "$DEVICE" "$VENDOR" "$AOSIP_ROOT"
 
 # Copyright headers and guards
 write_headers
