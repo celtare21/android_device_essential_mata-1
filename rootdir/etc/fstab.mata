@@ -11,7 +11,7 @@
 
 /dev/block/bootdevice/by-name/system     /                  ext4   ro,barrier=1                                     wait,slotselect,verify
 /dev/block/bootdevice/by-name/userdata   /data              ext4   noatime,nosuid,nodev,barrier=1,noauto_da_alloc,journal_async_commit,data=writeback,discard,commit=300   latemount,wait,check,fileencryption=ice,quota,reservedsize=128M
-/dev/block/bootdevice/by-name/userdata   /data              f2fs   noatime,nosuid,nodev,nodiratime,discard,fsync_mode=nobarrier,inline_xattr,inline_data   latemount,wait,check,formattable,encryptable=footer,quota,reservedsize=128M
+/dev/block/bootdevice/by-name/userdata   /data              f2fs   noatime,nosuid,nodev,nodiratime,discard,fsync_mode=nobarrier,background_gc=off,inline_xattr,inline_data   latemount,wait,check,formattable,encryptable=footer,quota,reservedsize=128M
 
 /dev/block/bootdevice/by-name/bluetooth  /bt_firmware       vfat   ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait,slotselect
 /dev/block/bootdevice/by-name/dsp        /dsp               ext4   ro,nosuid,nodev,barrier=1,context=u:object_r:adsprpcd_file:s0 wait,slotselect
