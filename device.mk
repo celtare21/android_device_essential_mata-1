@@ -165,6 +165,9 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
 
+# Gapps
+$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+
 # HDR
 PRODUCT_COPY_FILES += \
     device/essential/mata/configs/hdr_tm_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hdr_tm_config.xml
