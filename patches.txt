@@ -1,2 +1,1 @@
-67313  http://gerrit.aicp-rom.com prebuilts/clang/host/linux-x86
-69491  http://gerrit.aicp-rom.com frameworks/native
+81095  http://gerrit.aicp-rom.com frameworks/native
