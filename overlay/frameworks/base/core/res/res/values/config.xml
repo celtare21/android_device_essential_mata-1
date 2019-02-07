@@ -413,9 +413,6 @@
     <!-- Enable 802.11ac for Wifi hotspot (SAP) -->
     <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">true</bool>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
     <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
     <bool name="config_useRoundIcon">true</bool>
 
@@ -466,9 +463,4 @@
 
     <!-- Component name for default assistant on this device -->
     <string name="config_defaultAssistantComponentName">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</string>
-
-=======
->>>>>>> parent of 6035d199... mata: add prebuilt pixel launcher
-=======
->>>>>>> parent of 6035d199... mata: add prebuilt pixel launcher
 </resources>
