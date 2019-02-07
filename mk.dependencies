@@ -1,13 +1,13 @@
 [
   {
-    "repository":  "AICP/proprietary_vendor_essential",
+    "repository":  "celtare21/vendor_essential-1",
     "target_path": "vendor/essential",
-    "branch":      "p9.0"
+    "branch":      "aicp"
   },
   {
-    "repository":  "AICP/kernel_essential_msm8998",
+    "repository":  "StatiXOS/android_kernel_essential_msm8998",
     "target_path": "kernel/essential/msm8998",
-    "branch":      "p9.0"
+    "branch":      "9-caf"
   },
   {
     "repository":  "LineageOS/android_packages_resources_devicesettings",

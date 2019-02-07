@@ -29,7 +29,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 AICP_ROOT="$MY_DIR"/../../..
 
-HELPER="$AICP_ROOT"/vendor/aicp/build/tools/extract_utils.sh
+HELPER="$MK_ROOT"/vendor/mk/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1

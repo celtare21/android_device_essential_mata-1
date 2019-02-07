@@ -27,7 +27,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 AICP_ROOT="$MY_DIR"/../../..
 
-HELPER="$AICP_ROOT"/vendor/aicp/build/tools/extract_utils.sh
+HELPER="$MK_ROOT"/vendor/mk/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -57,7 +57,7 @@ setup_vendor "$DEVICE" "$VENDOR" "$AICP_ROOT" false "$CLEAN_VENDOR"
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
-sed -i 's/service fps_hal_mata/service vendor.fps_hal_mata/g' "$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.mata.rc
-sed -i 's/service sidecar-hal-1-0/service vendor.sidecar-hal-1-0/g' "$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/vendor/etc/init/vendor.essential.hardware.sidecar@1.0-service.rc
+sed -i 's/service fps_hal_mata/service vendor.fps_hal_mata/g' "$MK_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.mata.rc
+sed -i 's/service sidecar-hal-1-0/service vendor.sidecar-hal-1-0/g' "$MK_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/vendor/etc/init/vendor.essential.hardware.sidecar@1.0-service.rc
 
 "$MY_DIR"/setup-makefiles.sh
