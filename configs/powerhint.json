@@ -5,7 +5,7 @@
       "Path": "/dev/stune/top-app/schedtune.boost",
       "Values": [
         "15",
-        "1"
+        "0"
       ],
       "ResetOnInit": true
     },
