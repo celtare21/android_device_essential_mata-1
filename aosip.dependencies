@@ -1,0 +1,15 @@
+[
+  {
+    "repository": "vendor_essential",
+    "target_path": "vendor/essential"
+  },
+  {
+    "repository": "kernel_essential_msm8998",
+    "target_path": "kernel/essential/msm8998"
+  },
+  {
+    "repository":  "LineageOS/android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch":      "lineage-16.0"
+  }
+]
