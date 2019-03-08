@@ -217,7 +217,7 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # Security Patch Level
-VENDOR_SECURITY_PATCH := 2019-02-05
+VENDOR_SECURITY_PATCH := 2019-03-05
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
