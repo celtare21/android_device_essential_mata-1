@@ -124,8 +124,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl:32 \
     android.hardware.camera.provider@2.4-service \
     libxml2 \
-    Snap \
-    GCam
+    Snap
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -232,15 +231,6 @@ PRODUCT_PACKAGES += \
 # LiveDisplay native
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@1.0-service-sdm
-
-# Launcher
-PRODUCT_PACKAGES += \
-    Lawnchair \
-    LawnConf
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/launcher/Lawnchair/etc/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
-    $(LOCAL_PATH)/launcher/Lawnchair/etc/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
 
 # Media
 PRODUCT_COPY_FILES += \
