@@ -633,7 +633,7 @@ service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     capabilities NET_ADMIN
     writepid /dev/cpuset/system-background/tasks
 
-on property:sys.powerctl=*
+on property:sys.shutdown.requested=*
     stop vendor.cnss-daemon
 
 service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
@@ -744,7 +744,7 @@ service vendor.per_proxy /vendor/bin/pm-proxy
 on property:init.svc.per_mgr=running
     start vendor.per_proxy
 
-on property:sys.powerctl=*
+on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
     # Disable subsystem restart
