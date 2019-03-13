@@ -123,6 +123,15 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libqdMetaData
 
+# Codec2 modules
+PRODUCT_PACKAGES += \
+    com.android.media.swcodec \
+    libsfplugin_ccodec
+
+# Codec2 switch
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.media.codec2=2
+
 # Device settings
 #PRODUCT_PACKAGES += \
 #    DeviceSettings
