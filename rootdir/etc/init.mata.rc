@@ -200,6 +200,9 @@ on fs
     # vold needs keymaster that needs qseecomd
     start vendor.qseecomd
 
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
