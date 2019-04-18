@@ -13,11 +13,5 @@
     "repository":  "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings",
     "branch":      "lineage-16.0"
-  },
-  {
-    "remote": "gitlab",
-    "repository":  "celtare21/android_vendor_pixelgapps",
-    "target_path": "vendor/pixelgapps",
-    "branch":      "p9x"
   }
 ]
