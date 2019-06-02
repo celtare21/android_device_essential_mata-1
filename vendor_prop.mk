@@ -58,7 +58,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.cpurend.vsync=false \
     debug.hwui.use_buffer_age=false \
     dev.pm.dyn_samplingrate=1 \
-    debug.sf.early_phase_offset_ns=5000000 \
+    debug.sf.early_gl_phase_offset_ns=1000000 \
+    debug.sf.early_phase_offset_ns=1000000 \
     ro.opengles.version=196610 \
     ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=480 \
@@ -69,7 +70,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_skip_validate=1 \
     vendor.display.rotator_downscale=1 \
     vendor.display.perf_hint_window=50 \
-    vendor.gralloc.enable_fb_ubwc=1
+    vendor.gralloc.enable_fb_ubwc=1 \
+    debug.force_rtl=0 \
+    debug.gralloc.enable_fb_ubwc=1
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
