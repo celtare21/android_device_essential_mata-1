@@ -211,6 +211,11 @@ on late-fs
     start vendor.configstore-hal
     start vendor.gralloc-2-0
 
+    # Required for time_daemon
+    mkdir /persist/time 0770 system system
+    # Start time daemon early so that the system time can be set early
+    start vendor.time_daemon
+
     # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
     # In such case, init won't responce the property_set from hwservicemanager and then
     # cause services for bootanim not running.
