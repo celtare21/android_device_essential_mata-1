@@ -139,7 +139,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.videopause.mode=1 \
     persist.radio.sap_silent_pin=1 \
     persist.radio.always_send_plmn=true \
-    persist.radio.add_power_save=1 \
     persist.dbg.ims_volte_enable=1
 
 
@@ -190,9 +189,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
-    debug.sf.gpu_comp_tiling=1 \
-    debug.performance.tuning=1 \
-    video.accelerate.hw=1
+    debug.sf.gpu_comp_tiling=1
 
 # ART
 PRODUCT_PROPERTY_OVERRIDES += \
