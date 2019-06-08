@@ -13,5 +13,15 @@
     "repository":  "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings",
     "branch":      "lineage-16.0"
+  },
+  {
+    "repository":  "arter97/arm64-gcc",
+    "target_path": "prebuilts/gcc/linux-x86/aarch64/gcc-9",
+    "branch":      "master"
+  },
+  {
+    "repository":  "arter97/arm32-gcc",
+    "target_path": "prebuilts/gcc/linux-x86/arm/gcc-9",
+    "branch":      "master"
   }
 ]
