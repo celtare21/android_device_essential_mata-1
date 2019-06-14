@@ -597,12 +597,6 @@ on property:ro.boot.carrier.sku=*
     setprop ro.oem.key1 ${ro.boot.carrier.sku}
 
 on property:sys.boot_completed=1
-
-    # Enable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
-
     # Enable ZRAM
     swapon_all /vendor/etc/fstab.mata
 
