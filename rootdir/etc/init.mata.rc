@@ -770,6 +770,8 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqb
 
 service vendor.netmgrd /vendor/bin/netmgrd
     class main
+    user root
+    group root wifi wakelock radio inet
     disabled
     writepid /dev/cpuset/system-background/tasks
 
