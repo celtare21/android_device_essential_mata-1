@@ -42,7 +42,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     audio.volume.headset.gain.depcal=true \
-    persist.audio.fluence.voicecomm=true
+    persist.audio.fluence.voicecomm=true \
+    persist.vendor.bt.aac_frm_ctl.enabled=true
 
 # Audio dynamic feature flags
 PRODUCT_PROPERTY_OVERRIDES += \
