@@ -15,13 +15,13 @@
     "branch":      "lineage-16.0"
   },
   {
-    "repository":  "arter97/arm64-gcc",
+    "repository":  "kdrag0n/aarch64-elf-gcc",
     "target_path": "prebuilts/gcc/linux-x86/aarch64/gcc-9",
-    "branch":      "master"
+    "branch":      "9.x"
   },
   {
-    "repository":  "arter97/arm32-gcc",
+    "repository":  "kdrag0n/arm-eabi-gcc",
     "target_path": "prebuilts/gcc/linux-x86/arm/gcc-9",
-    "branch":      "master"
+    "branch":      "9.x"
   }
 ]
