@@ -87,7 +87,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.vbat.enable=true \
     vendor.audio.feature.wsa.enable=true \
     vendor.audio.feature.audiozoom.enable=false \
-    vendor.audio.feature.snd_mon.enable=true
+    vendor.audio.feature.snd_mon.enable=true \
+    vendor.audio.feature.multi_voice_session.enable=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
