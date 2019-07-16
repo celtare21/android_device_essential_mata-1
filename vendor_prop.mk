@@ -90,6 +90,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true \
     persist.dbg.wfc_avail_ovr=1
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0
+
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
