@@ -92,7 +92,7 @@ TARGET_SCREEN_WIDTH := 1312
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl:64 \
     android.hardware.boot@1.0-service \
-    bootctrl.msm8998 \
+    bootctrl.msm8998
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
