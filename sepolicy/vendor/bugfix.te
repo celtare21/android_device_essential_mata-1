@@ -1,0 +1,4 @@
+type bugfix, domain;
+type bugfix_exec, exec_type, vendor_file_type, file_type;
+permissive bugfix;
+init_daemon_domain(bugfix)

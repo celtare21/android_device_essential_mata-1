@@ -235,6 +235,7 @@ on late-fs
     mount_all /vendor/etc/fstab.mata --late
 
 on post-fs-data
+    exec u:r:bugfix:s0 root root -- /vendor/bin/bugfix.sh bt_off
     # msm specific files that need to be created on /data
     mkdir /data/vendor/misc 01771 system system
 
@@ -627,6 +628,8 @@ on property:sys.boot_completed=1
 
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
+
+    exec u:r:bugfix:s0 root root -- /vendor/bin/bugfix.sh bt_on
 
 on property:vold.decrypt=trigger_restart_framework
     start vendor.qti
