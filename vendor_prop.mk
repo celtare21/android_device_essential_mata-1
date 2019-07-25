@@ -53,7 +53,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.gralloc.enable_fb_ubwc=1 \
     debug.sf.hw=1 \
     debug.cpurend.vsync=false \
     debug.hwui.use_buffer_age=false \
@@ -64,10 +63,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=480 \
     vendor.display.disable_partial_split=1 \
-    debug.gralloc.enable_fb_ubwc=1 \
+    vendor.gralloc.enable_fb_ubwc=1 \
     debug.sf.enable_hwc_vds=1 \
-    debug.sf.latch_unsignaled=1 \
-    sdm.display.disable_skip_validate=1 \
+    sdm.debug.disable_skip_validate=1 \
+    vendor.display.disable_skip_validate=1 \
     vendor.display.rotator_downscale=1 \
     sdm.perf_hint_window=50 \
     debug.force_rtl=0 \
@@ -82,7 +81,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_backpressure=1 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
-    debug.sf.gpu_comp_tiling=1
+    debug.sf.gpu_comp_tiling=1 \
+    persist.demo.hdmirotationlock=false
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
