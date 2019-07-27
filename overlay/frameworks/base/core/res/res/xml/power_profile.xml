@@ -79,7 +79,7 @@
         <value>2457600</value>
     </array>
     <item name="cpu.suspend">4.73</item>
-    <item name="cpu.idle">60</item>
+    <item name="cpu.idle">6</item>
     <array name="cpu.core_power.cluster0">
         <value>10</value>
         <value>23.4</value>
