@@ -34,7 +34,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.fm.a2dp.conc.disabled=true \
     vendor.voice.path.for.pcm.voip=true \
     ro.audio.flinger_standbytime_ms=300 \
-    ro.af.client_heap_size_kbyte=7168
+    ro.af.client_heap_size_kbyte=7168 \
+    audio.deep_buffer.media=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -53,12 +54,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.hw=1 \
+    debug.sf.hw=0 \
     debug.cpurend.vsync=false \
     debug.hwui.use_buffer_age=false \
     dev.pm.dyn_samplingrate=1 \
-    debug.sf.early_gl_phase_offset_ns=1000000 \
-    debug.sf.early_phase_offset_ns=1000000 \
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.sf.early_phase_offset_ns=1500000 \
     ro.opengles.version=196610 \
     ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=480 \
@@ -75,7 +78,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
     debug.enable.sglscale=1 \
-    debug.egl.hw=1 \
+    debug.egl.hw=0 \
     debug.sf.disable_hwc=0 \
     debug.sf.recomputecrop=0 \
     debug.sf.disable_backpressure=1 \
@@ -84,11 +87,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.gpu_comp_tiling=1 \
     persist.demo.hdmirotationlock=false
 
-# DPM
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.dpm.feature=1 \
-    persist.vendor.dpm.nsrm.bkg.evt=3955
-
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/1da4000.ufshc/by-name/frp
@@ -96,6 +94,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # HDR
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
+
+# NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.nfc.uicc_enabled=true
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -108,8 +110,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.df.iwlan_mux=9 \
     persist.data.iwlan.enable=true \
     persist.data.mode=concurrent \
-    persist.vendor.data.mode=concurrent \
-    ro.vendor.use_data_netmgrd=true \
     persist.data.netmgrd.qos.enable=true \
     persist.radio.VT_CAM_INTERFACE=2 \
     persist.radio.VT_ENABLE=1 \
@@ -125,7 +125,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.sib16_support=1 \
     vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=10 \
+    ro.com.android.dataroaming=false \
+    ro.telephony.default_network=22 \
     telephony.lteOnCdmaDevice=1
 
 
@@ -155,11 +156,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
-
-# Fling
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.min.fling_velocity=160 \
-    ro.max.fling_velocity=20000
 
 # ART
 PRODUCT_PROPERTY_OVERRIDES += \
