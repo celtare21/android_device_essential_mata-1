@@ -582,7 +582,7 @@ vendor/etc/init/android.hardware.health@2.0-service.mata.rc
 -priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
 # IRQ balance
-vendor/bin/msm_irqbalance
+vendor/bin/msm_irqbalance|7ce3f35f7e0f12af1e2d36aa095d56a5ec88c51e
 
 # Keystore
 vendor/lib/hw/keystore.msm8998.so
