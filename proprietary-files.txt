@@ -893,3 +893,6 @@ vendor/lib64/libext2_uuid.so|de5adcb46c315268d930d1957e2fe162693232fb
 vendor/lib64/libext4_utils.so|3e00ffa47f7b1e2171e9102af2b687e12bc8d06c
 vendor/lib64/libkeyutils.so|5bc1ec4c390aacbd8d542c794b12084a29ed6447
 vendor/lib64/liblogwrap.so|304421bf51f9914d475b7b056b2a9f74722e4ddd
+
+# Prebuilt
+bin/fsck.f2fs|0f1cbaeabab9345d2257fac8f0debad2fd3947bd
