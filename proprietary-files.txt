@@ -56,9 +56,6 @@ vendor/lib64/soundfx/libqcreverb.so
 vendor/lib64/soundfx/libqcvirt.so
 vendor/lib64/soundfx/libshoebox.so
 
-# Audio amplifier calibration sound - from gemini
-etc/silence_short.wav|12b2b5e31a1405c95f70b4e3e88d75d01e1ca883
-
 # Bluetooth
 vendor/bin/btaddr_extract
 vendor/bin/wcnss_filter|f5200a7b804a16c46803ff17af0cbc162c45a19e
