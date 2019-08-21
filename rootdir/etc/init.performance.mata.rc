@@ -16,7 +16,7 @@ on init
     write /sys/module/lpm_levels/parameters/sleep_disabled Y
 
     # Setup schedtune
-    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/foreground/schedtune.prefer_idle 0
     write /dev/stune/top-app/schedtune.boost 0
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
