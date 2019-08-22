@@ -889,3 +889,7 @@ vendor/lib64/liblogwrap.so|304421bf51f9914d475b7b056b2a9f74722e4ddd
 
 # Prebuilt
 bin/fsck.f2fs|0f1cbaeabab9345d2257fac8f0debad2fd3947bd
+
+# SSR
+vendor/bin/ssr_setup
+vendor/bin/ssr_diag

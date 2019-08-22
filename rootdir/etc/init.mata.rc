@@ -592,6 +592,9 @@ on property:persist.sys.ssr.enable_ramdumps=1
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
 
+on property:persist.sys.ssr.restart_level=*
+    start ssr_setup
+
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
@@ -869,6 +872,16 @@ service vendor.tftp_server /vendor/bin/tftp_server
     class core
     user root
     group root system
+
+service ssr_setup /vendor/bin/ssr_setup
+    oneshot
+    disabled
+
+service ssr_diag /vendor/bin/ssr_diag
+    class late_start
+    user system
+    group system
+    disabled
 
 service update_neko /vendor/bin/fastboot update /data/ota_package/update_neko.zip
     class main
