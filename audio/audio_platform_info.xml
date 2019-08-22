@@ -32,6 +32,7 @@
         <device name="SND_DEVICE_IN_VOICE_REC_QMIC_FLUENCE" acdb_id="131"/>
         <device name="SND_DEVICE_IN_VOICE_REC_TMIC" acdb_id="131"/>
         <device name="SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE" acdb_id="132"/>
+        <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="34"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED" acdb_id="150"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT" acdb_id="150"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_1" acdb_id="151"/>
@@ -125,6 +126,9 @@
     </backend_names>
     <device_names>
         <device name="SND_DEVICE_IN_VOICE_SPEAKER_QMIC" alias="voice-speaker-tmic"/>
+    </device_names>
+    <device_names>
+        <device name="SND_DEVICE_IN_CAMCORDER_MIC" alias="handset-stereo-dmic-ef"/>
     </device_names>
     <app_types>
       <app uc_type="PCM_PLAYBACK" mode="default" bit_width="16" id="69936" max_rate="192000" />
