@@ -459,7 +459,10 @@
     <bool name="config_useRoundIcon">true</bool>
 
     <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
-    <bool name="config_swipe_up_gesture_setting_available">true</bool>
+    <bool name="config_custom_swipe_up_gesture_setting_available">true</bool>
+
+    <!-- To allow the volume panel to be moved to the left/right -->
+    <bool name="config_audioPanelOnLeftSide">true</bool>
 
     <!-- Hardware keys present on the device, stored as a bit field
     This integer should equal the sum of the corresponding value for each
