@@ -34,7 +34,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.fm.a2dp.conc.disabled=true \
     vendor.voice.path.for.pcm.voip=true \
     ro.audio.flinger_standbytime_ms=300 \
-    audio.deep_buffer.media=true
+    audio.deep_buffer.media=true \
+    audio.offload.min.duration.secs=30 \
+    audio.offload.video=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -53,38 +55,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.hw=0 \
-    debug.cpurend.vsync=false \
-    debug.hwui.use_buffer_age=false \
+    debug.gralloc.enable_fb_ubwc=1 \
+    debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
-    debug.sf.early_app_phase_offset_ns=1500000 \
-    debug.sf.early_gl_phase_offset_ns=3000000 \
-    debug.sf.early_gl_app_phase_offset_ns=15000000 \
-    debug.sf.early_phase_offset_ns=1500000 \
     ro.opengles.version=196610 \
     ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=480 \
     vendor.display.disable_partial_split=1 \
-    vendor.gralloc.enable_fb_ubwc=1 \
     debug.sf.enable_hwc_vds=1 \
+    debug.sf.latch_unsignaled=1 \
+    persist.demo.hdmirotationlock=false \
     sdm.debug.disable_skip_validate=1 \
-    vendor.display.disable_skip_validate=1 \
-    vendor.display.rotator_downscale=1 \
     sdm.perf_hint_window=50 \
-    debug.force_rtl=0 \
-    debug.composition.type=c2d \
-    debug.mdpcomp.idletime=600 \
-    persist.hwc.mdpcomp.enable=true \
-    persist.hwc.ptor.enable=true \
-    debug.enable.sglscale=1 \
-    debug.egl.hw=0 \
-    debug.sf.disable_hwc=0 \
-    debug.sf.recomputecrop=0 \
-    debug.sf.disable_backpressure=1 \
-    persist.hwc.mdpcomp.enable=true \
-    persist.hwc.ptor.enable=true \
-    debug.sf.gpu_comp_tiling=1 \
-    persist.demo.hdmirotationlock=false
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.sf.early_phase_offset_ns=1500000 \
+    debug.cpurend.vsync=false \
+    debug.hwui.use_buffer_age=false \
+    vendor.gralloc.enable_fb_ubwc=1 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.display.perf_hint_window=50
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
