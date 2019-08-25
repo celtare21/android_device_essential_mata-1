@@ -152,6 +152,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.1-service.clearkey \
     move_widevine_data.sh
 
+# Exclude TOF sensor from InputManager
+PRODUCT_COPY_FILES += \
+    device/essential/mata/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1
