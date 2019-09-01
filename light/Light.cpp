@@ -64,7 +64,7 @@ static void set(std::string path, std::string value) {
     std::ofstream file(path);
 
     if (!file.is_open()) {
-        ALOGE("failed to write %s to %s", value.c_str(), path.c_str());
+        ALOGW("failed to write %s to %s", value.c_str(), path.c_str());
         return;
     }
 
