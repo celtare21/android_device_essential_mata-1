@@ -534,9 +534,6 @@ on boot
     chmod 660 /sys/class/leds/blue/start_idx
 
     # init.target.rc
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/green/blink
-    chown system system /sys/class/leds/blue/blink
     start vendor.rmt_storage
 
     # Adjust permission for Sidecar
