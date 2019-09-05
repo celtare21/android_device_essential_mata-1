@@ -176,3 +176,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level=modem,slpi,adsp
+
+# NavBar
+PRODUCT_PROPERTY_OVERRIDES += \
+    qemu.hw.mainkeys=0
