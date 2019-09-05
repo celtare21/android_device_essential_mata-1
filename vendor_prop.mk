@@ -47,8 +47,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.expose.aux=1 \
-    persist.camera.is_type=4 \
-    persist.camera.is_mode=4 \
+    persist.camera.is_type=5 \
     persist.camera.eis.enable=1 \
     persist.camera.max.previewfps=60 \
     vidc.enc.dcvs.extra-buff-count=2
