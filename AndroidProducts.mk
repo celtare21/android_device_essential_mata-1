@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES += \
-    device/essential/mata/aicp_mata.mk
+    device/essential/mata/potato_mata.mk
