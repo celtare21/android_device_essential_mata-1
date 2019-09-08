@@ -95,7 +95,6 @@ persist.timed.enable       u:object_r:vendor_default_prop:s0
 qdcm.                      u:object_r:vendor_default_prop:s0
 ro.boot.carrier.sku        u:object_r:vendor_default_prop:s0
 ro.boot.color.info         u:object_r:vendor_default_prop:s0
-ro.build.software.version  u:object_r:vendor_default_prop:s0
 ro.lean                    u:object_r:vendor_default_prop:s0
 ro.qcom.                   u:object_r:vendor_default_prop:s0
 ro.qti.                    u:object_r:vendor_default_prop:s0
