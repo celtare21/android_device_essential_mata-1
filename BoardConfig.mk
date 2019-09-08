@@ -188,7 +188,6 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_SOURCE := kernel/essential/msm8998
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
 KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/gcc-9/bin
-export CROSS_COMPILE_ARM32 = prebuilts/gcc/linux-x86/arm/gcc-9/bin/arm-eabi-
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
