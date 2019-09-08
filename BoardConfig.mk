@@ -146,7 +146,6 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
