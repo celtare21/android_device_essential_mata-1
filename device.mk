@@ -217,15 +217,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.mata
 
-# Launcher
-PRODUCT_PACKAGES += \
-    Lawnchair \
-    LawnConf
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/launcher/Lawnchair/etc/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
-    $(LOCAL_PATH)/launcher/Lawnchair/etc/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
-
 # Media
 PRODUCT_COPY_FILES += \
     device/essential/mata/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
