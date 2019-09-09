@@ -43,7 +43,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     vendor.audio.volume.headset.gain.depcal=true \
     persist.audio.fluence.voicecomm=true \
-    persist.vendor.bt.aac_frm_ctl.enabled=true
+    persist.vendor.bt.aac_frm_ctl.enabled=true \
+    vendor.audio.spkr_prot.tx.sampling_rate=48000
 
 # Audio dynamic feature flags
 PRODUCT_PROPERTY_OVERRIDES += \
