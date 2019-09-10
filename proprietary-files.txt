@@ -782,6 +782,7 @@ vendor/lib/lib-rtpcommon.so
 vendor/lib/lib-rtpcore.so
 vendor/lib/lib-rtpdaemoninterface.so
 vendor/lib/lib-rtpsl.so
+vendor/lib/lib-uceservice.so
 vendor/lib/vendor.qti.hardware.radio.ims@1.0.so
 vendor/lib/vendor.qti.imsrtpservice@1.0_vendor.so
 vendor/lib/vendor.qti.imsrtpservice@1.0-service-Impl.so
