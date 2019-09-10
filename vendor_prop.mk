@@ -121,6 +121,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.rat_on=other \
     persist.vendor.radio.sib16_support=1 \
     vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
     ro.com.android.dataroaming=false \
     ro.telephony.default_network=22 \

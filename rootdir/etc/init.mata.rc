@@ -563,6 +563,10 @@ on property:sys.sysctl.tcp_adv_win_scale=*
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
+# Set vendor-ril lib path based on Meta version
+on property:vendor.rild.libpath=*
+    setprop rild.libpath ${vendor.rild.libpath}
+
 # Needed for OTA control
 on property:ro.boot.carrier.sku=*
     setprop ro.oem.key1 ${ro.boot.carrier.sku}
