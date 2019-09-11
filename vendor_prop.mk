@@ -88,7 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.nfc.uicc_enabled=true
+    persist.nfc.uicc_enabled=true
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
