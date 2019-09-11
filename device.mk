@@ -188,7 +188,8 @@ PRODUCT_PACKAGES += \
     init.mata.usb.rc \
     init.performance.mata.rc \
     init.qcom.devstart.sh \
-    ueventd.mata.rc
+    ueventd.mata.rc \
+    bugfix.sh
 
 # IPACM
 PRODUCT_PACKAGES += \
