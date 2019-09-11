@@ -48,6 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.expose.aux=1 \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.essential.klik \
     persist.camera.is_type=5 \
     persist.camera.eis.enable=1 \
     persist.camera.max.previewfps=60 \
