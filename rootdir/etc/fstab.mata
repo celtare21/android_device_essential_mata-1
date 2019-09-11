@@ -7,7 +7,7 @@
 
 # A/B fstab.qcom variant
 #<src>                                   <mnt_point>        <type> <mnt_flags and options>                          <fs_mgr_flags>
-/dev/block/zram0                         none               swap   defaults                                         zramsize=1073741824
+/dev/block/zram0                         none               swap   defaults                                         zramsize=2147483648,max_comp_streams=8
 
 /dev/block/bootdevice/by-name/system     /                  ext4   ro,barrier=1                                     wait,slotselect,verify
 /dev/block/bootdevice/by-name/userdata   /data              ext4   noatime,nosuid,nodev,barrier=1,noauto_da_alloc,journal_async_commit,data=writeback,discard,commit=300   latemount,wait,check,fileencryption=ice,quota,reservedsize=128M
