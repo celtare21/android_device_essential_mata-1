@@ -646,6 +646,10 @@ vendor/lib64/libvpplibrary.so
 # NFC
 vendor/lib/libpn548ad_fw.so
 
+# Perf
+vendor/lib/libqti-perfd-client.so
+vendor/lib64/libqti-perfd-client.so
+
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
