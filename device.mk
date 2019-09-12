@@ -124,8 +124,8 @@ PRODUCT_PACKAGES += \
     libqdMetaData
 
 # Device settings
-PRODUCT_PACKAGES += \
-    DeviceSettings
+#PRODUCT_PACKAGES += \
+#    DeviceSettings
 
 # Display
 PRODUCT_PACKAGES += \
