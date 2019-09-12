@@ -871,20 +871,20 @@ vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0_vendor.so
 vendor/bin/cnss-daemon
 
 # Misc
-vendor/lib/libllvd_smore.so|740de4c339772df80858ddd9390f91ead71eadeb
-vendor/lib/libmm-qcamera.so|c6f22d6dbef7eb43b0e9b620892fd9087b33bf06
-vendor/lib/libmmosal_proprietary.so|ce21cafb58bfe4afb09614cd7021a2837038801d
-vendor/lib/libperfgluelayer.so|182fa68978f7e9c97d6be222fd810aeb2b3b4084
-vendor/lib/libwfdcommonutils_proprietary.so|044fa0f25e2623ee760f8bd201e466f9c1b70a22
-vendor/lib/libwfdmmservice.so|e434c888dbab6f4b48915afaf3f4cddf495c621b
-vendor/lib/lib-dplmedia.so|265086b103d2d15a79d1a5e56446ebb992db367d
-vendor/lib/libconfigdb.so|6cfb75bdb49bd30cb7f1591fbdfd2f2af0053e8c
-vendor/lib/libnetmgr.so|57d24e15b8ce5e9c2ec09b3383cafc48fef98a2c
-vendor/lib64/libperfgluelayer.so|e4fd679429eddad715feebf1c44a60d9be4285a0
 lib/libfiltergenerator.so:vendor/lib/libfiltergenerator.so
 lib64/libseestraight.so:vendor/lib64/libseestraight.so
 lib64/libfiltergenerator.so:vendor/lib64/libfiltergenerator.so
 lib64/libtruescanner.so:vendor/lib64/libtruescanner.so
+vendor/lib/libmm-qcamera.so
+vendor/lib/libmmosal_proprietary.so
+vendor/lib/libwfdcommonutils_proprietary.so
+vendor/lib/libwfdmmservice.so
+vendor/lib/lib-dplmedia.so
+vendor/lib/libconfigdb.so
+vendor/lib/libnetmgr.so
+vendor/lib/libperfgluelayer.so|182fa68978f7e9c97d6be222fd810aeb2b3b4084
+vendor/lib/libllvd_smore.so|740de4c339772df80858ddd9390f91ead71eadeb
+vendor/lib64/libperfgluelayer.so|e4fd679429eddad715feebf1c44a60d9be4285a0
 
 # 360 cam
 lib64/libsparse.so|79c44c5479eacd4afd9578694234fdc662da804a
