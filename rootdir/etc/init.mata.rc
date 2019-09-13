@@ -839,7 +839,7 @@ service ssr_diag /vendor/bin/ssr_diag
     group system
     disabled
 
-service update_neko /vendor/bin/fastboot update /data/ota_package/update_neko.zip
+service update_neko /system/bin/fastboot_target update /data/ota_package/update_neko.zip
     class main
     user root
     group system shell cache
