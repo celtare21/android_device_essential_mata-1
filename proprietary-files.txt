@@ -363,7 +363,7 @@ vendor/lib64/libubifocus.so
 app/Score/lib/arm64/libcxaudiohidlib_embcb_jni.so:vendor/app/Score/lib/arm64/libcxaudiohidlib_embcb_jni.so
 app/Score/lib/arm64/libCxAudioHidLib.so:vendor/app/Score/lib/arm64/libCxAudioHidLib.so
 app/Score/lib/arm64/libusb1.0.so:vendor/app/Score/lib/arm64/libusb1.0.so
-bin/fastboot:vendor/bin/fastboot
+bin/fastboot_target
 etc/permissions/vendor-essential-hardware-sidecar.xml:vendor/etc/permissions/vendor-essential-hardware-sidecar.xml
 -priv-app/Klik/Klik.apk;PRESIGNED
 vendor/bin/hw/vendor.essential.hardware.sidecar@1.0-service
