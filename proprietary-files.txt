@@ -369,7 +369,7 @@ etc/permissions/vendor-essential-hardware-sidecar.xml:vendor/etc/permissions/ven
 vendor/bin/hw/vendor.essential.hardware.sidecar@1.0-service
 vendor/etc/init/vendor.essential.hardware.sidecar@1.0-service.rc
 vendor/etc/permissions/com.essential.feature.ESSENTIAL_EXPERIENCE.xml
-vendor/framework/vendor.essential.hardware.sidecar-V1.0-java.jar
+product/framework/vendor.essential.hardware.sidecar-V1.0-java.jar
 vendor/lib/hw/vendor.essential.hardware.sidecar@1.0-impl.so
 vendor/lib/vendor.essential.hardware.sidecar@1.0.so
 vendor/lib64/hw/vendor.essential.hardware.sidecar@1.0-impl.so
