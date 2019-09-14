@@ -182,7 +182,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # NavBar
 PRODUCT_PROPERTY_OVERRIDES += \
     qemu.hw.mainkeys=0
-
-# NFC
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.nfc.uicc_enabled=true
