@@ -1,4 +1,7 @@
 service vendor.power-hal-1-2 /vendor/bin/hw/android.hardware.power@1.2-service.mata-libperfmgr
     class hal
-    user system
+    user root
     group system
+    interface android.hardware.power@1.0::IPower default
+    interface android.hardware.power@1.1::IPower default
+    interface android.hardware.power@1.2::IPower default
