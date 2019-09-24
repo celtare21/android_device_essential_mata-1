@@ -656,7 +656,7 @@ service vendor.hbtp /vendor/bin/hbtp_daemon
     user system
     group system
     capabilities SYS_NICE
-    ioprio rt 4
+    ioprio rt 3
 
 on property:vendor.grip.status=*
     exec u:r:hbtp_cmd:s0 root system -- /vendor/bin/hbtp_cmd.sh grip ${vendor.grip.status}
