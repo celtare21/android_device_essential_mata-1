@@ -590,6 +590,10 @@ on property:sys.boot_completed=1
     write /sys/devices/soc0/image_variant "${ro.product.name}-${ro.build.type}"
     write /sys/devices/soc0/image_crm_version "REL"
 
+    # Default touch props
+    setprop vendor.grip.status off
+    setprop vendor.touch.smoothness 7
+
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
