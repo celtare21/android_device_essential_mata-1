@@ -181,6 +181,11 @@ PRODUCT_PACKAGES += \
 # Gapps
 $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
+
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \
