@@ -559,10 +559,6 @@ vendor/lib64/libtinyxml2_1.so|b2d1b6d5f6459ce227e1bcdbb4004dcdc8d2746f
 -vendor/lib/libsdm-disp-vndapis.so|fd218eef27383ee14e80384c8299d1b15e4ffe07
 -vendor/lib64/libsdm-disp-vndapis.so|9769adaa587f153bd8b4e88e441c4422ae37b605
 
-# Health
-vendor/bin/hw/android.hardware.health@2.0-service.mata
-vendor/etc/init/android.hardware.health@2.0-service.mata.rc
-
 # Hotword Enrollment
 -priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
 -priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
