@@ -36,9 +36,9 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
         PRODUCT_NAME=mata \
-        PRIVATE_BUILD_DESC="mata-user 10 QP1A.190711.122 420 release-keys"
+        PRIVATE_BUILD_DESC="mata-user 10 QP1A.190711.148 446 release-keys"
 
-BUILD_FINGERPRINT := essential/mata/mata:10/QP1A.190711.122/420:user/release-keys
+BUILD_FINGERPRINT := essential/mata/mata:10/QP1A.190711.148/446:user/release-keys
 
 # AICP Device Maintainers
 PRODUCT_BUILD_PROP_OVERRIDES += \
