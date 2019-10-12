@@ -200,7 +200,7 @@ PRODUCT_PACKAGES += \
     init.performance.mata.rc \
     init.qcom.devstart.sh \
     ueventd.mata.rc \
-    bugfix.sh
+    bootbt.sh
 
 # IPACM
 PRODUCT_PACKAGES += \

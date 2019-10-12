@@ -66,9 +66,9 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := bugfix.sh
+LOCAL_MODULE       := bootbt.sh
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_SRC_FILES    := bin/bugfix.sh
+LOCAL_SRC_FILES    := bin/bootbt.sh
 LOCAL_VENDOR_MODULE    := true
 include $(BUILD_PREBUILT)
