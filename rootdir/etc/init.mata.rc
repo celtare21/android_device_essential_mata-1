@@ -632,7 +632,7 @@ service vendor.bootbt /vendor/bin/bootbt.sh
     group root
     oneshot
 
-service vendor.charger /charger
+service vendor.charger /system/bin/charger
     class charger
     group system graphics input
     seclabel u:r:charger:s0
