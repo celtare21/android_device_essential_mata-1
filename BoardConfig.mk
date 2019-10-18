@@ -209,7 +209,7 @@ HWUI_COMPILE_FOR_PERF := true
 TARGET_RECOVERY_UI_MARGIN_WIDTH := 64
 
 # Root
-BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
+BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
 # Security Patch Level
 VENDOR_SECURITY_PATCH := 2019-10-05
