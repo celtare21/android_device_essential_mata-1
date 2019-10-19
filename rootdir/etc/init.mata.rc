@@ -362,8 +362,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
 
-    start vendor.bootbt
-
     # Setup permission for powerHAL
     chown system system /dev/stune/top-app/schedtune.boost
     chown system system /dev/cpu_dma_latency
@@ -380,6 +378,8 @@ on early-boot
     setrlimit 8 67108864 67108864
 
     setprop ro.alarm_boot false
+
+    start vendor.bootbt
 
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
