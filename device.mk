@@ -187,6 +187,9 @@ PRODUCT_PACKAGES += \
     ims-ext-common \
     ims_ext_common.xml
 
+PRODUCT_PACKAGES += \
+    libbase_shim
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.mata \
