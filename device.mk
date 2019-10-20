@@ -184,6 +184,7 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_PACKAGES += \
+    libbase_shim \
     ims-ext-common \
     ims_ext_common.xml
 
