@@ -559,7 +559,7 @@ vendor/lib64/libtinyxml2_1.so|b2d1b6d5f6459ce227e1bcdbb4004dcdc8d2746f
 -priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
 # IRQ balance
-vendor/bin/msm_irqbalance|7ce3f35f7e0f12af1e2d36aa095d56a5ec88c51e
+vendor/bin/msm_irqbalance
 
 # Keystore
 vendor/lib/hw/keystore.msm8998.so
