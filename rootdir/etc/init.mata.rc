@@ -26,7 +26,8 @@
 #
 
 import /vendor/etc/init/hw/init.mata.ramdump.rc
-import /vendor/etc/init/hw/init.mata.usb.rc
+import /vendor/etc/init/hw/init.qcom.usb.rc
+import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.performance.mata.rc
 
 on early-init
