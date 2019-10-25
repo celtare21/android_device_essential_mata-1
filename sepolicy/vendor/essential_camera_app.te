@@ -32,5 +32,3 @@ allow essential_camera_app system_app_data_file:file r_file_perms;
 
 r_dir_file(essential_camera_app, proc_net)
 r_dir_file(essential_camera_app, sysfs_sidecar_file)
-
-get_prop(essential_camera_app, vendor_camera_prop)
