@@ -1,4 +1,5 @@
-/firmware(/.*)?                                               u:object_r:firmware_file:s0
+/dsp                                                          u:object_r:rootfs:s0
+/firmware                                                     u:object_r:rootfs:s0
 
 /data/vendor/misc/audio(/.*)?                                 u:object_r:audio_vendor_data_file:s0
 
@@ -8,6 +9,7 @@
 /dev/neko[0-9]*                                               u:object_r:neko_device:s0
 /dev/stmvl53l0_ranging                                        u:object_r:camera_device:s0
 /dev/ttyACM[0-9]*                                             u:object_r:sidecar_device:s0
+/dev/ttyHS0                                                   u:object_r:hci_attach_dev:s0
 /sys/class/sidecar(/.*)?                                      u:object_r:sysfs_sidecar_file:s0
 /sys/devices/virtual/switch/mata_headset/state                u:object_r:sysfs_sidecar_file:s0
 
@@ -21,17 +23,16 @@
 /sys/kernel/boot_wlan(/.*)?                                   u:object_r:sysfs_wifi:s0
 /sys/kernel/debug/rmt_storage(/.*)?                           u:object_r:debugfs_rmts:s0
 
-/system/bin/move_widevine_data\.sh                            u:object_r:move-widevine-data-sh_exec:s0
-
 /vendor/bin/fastboot                                          u:object_r:vendor_shell_exec:s0
+/vendor/bin/wcnss_filter                                      u:object_r:wcnss_filter_exec:s0
 
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.mata u:object_r:hal_fingerprint_essential_exec:s0
-/vendor/bin/hw/android\.hardware\.health@2\.0-service\.mata   u:object_r:hal_health_default_exec:s0
+/vendor/bin/hw/android\.hardware\.health@2\.0-service   u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.mata    u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.power@1\.3-service\.pixel-libperfmgr u:object_r:hal_power_default_exec:s0
-/vendor/bin/hw/android\.hardware\.thermal@1\.1-service\.mata  u:object_r:hal_thermal_default_exec:s0
+/vendor/bin/hw/android\.hardware\.thermal@1\.0-service u:object_r:hal_thermal_default_exec:s0
 /vendor/bin/hw/android\.hardware\.usb@1\.0-service\.mata      u:object_r:hal_usb_default_exec:s0
-/vendor/bin/hw/android\.hardware\.vibrator@1\.2-service\.mata u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/android\.hardware\.vibrator@1\.0-service u:object_r:hal_vibrator_default_exec:s0
 /vendor/bin/hw/vendor\.essential\.hardware\.sidecar@1\.0-service u:object_r:hal_sidecar_essential_default_exec:s0
 
 /vendor/bin/hbtp_cmd\.sh                                      u:object_r:hbtp_cmd_exec:s0

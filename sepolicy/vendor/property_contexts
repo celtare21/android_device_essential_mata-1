@@ -7,16 +7,15 @@ persist.dualcam. u:object_r:camera_prop:s0
 persist.tnr. u:object_r:camera_prop:s0
 persist.net.doxlat u:object_r:vendor_xlat_prop:s0
 persist.nfc. u:object_r:persist_nfc_prop:s0
+persist.vendor.wigig.npt.enable u:object_r:cnss_prop:s0
 ro.alarm_boot u:object_r:vendor_alarm_boot_prop:s0
 ro.camera. u:object_r:camera_prop:s0
 sys.ims. u:object_r:qcom_ims_prop:s0
 sys.qca1530 u:object_r:qca1530_prop:s0
-vendor.grip.status u:object_r:vendor_hbtp_prop:s0
 vendor.powerhal.audio u:object_r:power_prop:s0
 vendor.powerhal.init u:object_r:power_prop:s0
 vendor.powerhal.rendering u:object_r:power_prop:s0
 vendor.powerhal.state u:object_r:power_prop:s0
-vendor.touch.smoothness u:object_r:vendor_hbtp_prop:s0
 
 # public_vendor_default_prop
 # They are public_vendor_default_props for vendor-specific extension.
@@ -28,6 +27,10 @@ persist.cne.logging.qxdm   u:object_r:public_vendor_default_prop:s0
 persist.cne.rat.wlan.chip.oem u:object_r:public_vendor_default_prop:s0
 persist.vendor.cnd.iwlan   u:object_r:public_vendor_default_prop:s0
 sys.score.accessory        u:object_r:sidecar_prop:s0
+
+# vendor_camera_prop
+persist.camera.expose.aux  u:object_r:vendor_camera_prop:s0
+persist.camera.max.previewfps u:object_r:vendor_camera_prop:s0
 
 # vendor_default_prop
 # default_prop isn't accessible from vendor components.
@@ -90,6 +93,7 @@ persist.timed.enable       u:object_r:vendor_default_prop:s0
 qdcm.                      u:object_r:vendor_default_prop:s0
 ro.boot.carrier.sku        u:object_r:vendor_default_prop:s0
 ro.boot.color.info         u:object_r:vendor_default_prop:s0
+ro.build.software.version  u:object_r:vendor_default_prop:s0
 ro.lean                    u:object_r:vendor_default_prop:s0
 ro.qcom.                   u:object_r:vendor_default_prop:s0
 ro.qti.                    u:object_r:vendor_default_prop:s0
@@ -122,3 +126,7 @@ persist.radio.VT_ENABLE u:object_r:vendor_radio_prop:s0
 persist.radio.VT_HYBRID_ENABLE u:object_r:vendor_radio_prop:s0
 radio. u:object_r:vendor_radio_prop:s0
 rcs.publish.status u:object_r:vendor_radio_prop:s0
+
+# vendor_usb_config_prop
+persist.vendor.usb.config  u:object_r:vendor_usb_config_prop:s0
+vendor.usb.config          u:object_r:vendor_usb_config_prop:s0
