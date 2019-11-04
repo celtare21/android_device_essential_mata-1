@@ -37,9 +37,9 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
         PRODUCT_NAME=mata \
-        PRIVATE_BUILD_DESC="mata-user 10 QP1A.190711.148 446 release-keys"
+        PRIVATE_BUILD_DESC="mata-user 10 QP1A.191005.014 478 release-keys"
 
-BUILD_FINGERPRINT := essential/mata/mata:10/QP1A.190711.148/446:user/release-keys
+BUILD_FINGERPRINT := essential/mata/mata:10/QP1A.191005.014/478:user/release-keys
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
