@@ -208,6 +208,7 @@ HWUI_COMPILE_FOR_PERF := true
 
 # Recovery
 TARGET_RECOVERY_UI_MARGIN_WIDTH := 64
+TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
 
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
