@@ -184,9 +184,7 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    libbase_shim \
-    ims-ext-common \
-    ims_ext_common.xml
+    libbase_shim
 
 # Init
 PRODUCT_PACKAGES += \
@@ -356,9 +354,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
-    telephony-ext \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml
+    telephony-ext
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
