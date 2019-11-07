@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES += \
-    device/essential/mata/aosip_mata.mk
+    device/essential/mata/aicp_mata.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosip_mata-user \
-    aosip_mata-userdebug \
-    aosip_mata-eng
+    aicp_mata-user \
+    aicp_mata-userdebug \
+    aicp_mata-eng
