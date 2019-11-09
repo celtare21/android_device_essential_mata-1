@@ -844,9 +844,9 @@ vendor/lib/libwfdmmservice.so
 vendor/lib/lib-dplmedia.so
 vendor/lib/libconfigdb.so
 vendor/lib/libnetmgr.so
-vendor/lib/libperfgluelayer.so|182fa68978f7e9c97d6be222fd810aeb2b3b4084
+vendor/lib/libperfgluelayer.so|569bc942fcd54c1a52d345178694917642707b47
 vendor/lib/libllvd_smore.so|740de4c339772df80858ddd9390f91ead71eadeb
-vendor/lib64/libperfgluelayer.so|e4fd679429eddad715feebf1c44a60d9be4285a0
+vendor/lib64/libperfgluelayer.so|bfb9706a184fca4163e5a7cb5fcad11674958761
 
 # 360 cam
 lib64/libsparse.so|79c44c5479eacd4afd9578694234fdc662da804a
