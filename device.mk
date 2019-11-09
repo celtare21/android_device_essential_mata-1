@@ -351,7 +351,8 @@ PRODUCT_PACKAGES += \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    device/essential/mata
+    device/essential/mata \
+    hardware/google/pixel
 
 # Telephony
 PRODUCT_PACKAGES += \
