@@ -481,30 +481,44 @@ vendor/lib/hw/gatekeeper.msm8998.so
 vendor/lib64/hw/gatekeeper.msm8998.so
 
 # GPS
+framework/izat.xt.srv.jar
 vendor/bin/hw/android.hardware.gnss@1.0-service-qti
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/xtra-daemon
-vendor/etc/flp.conf
-vendor/etc/gps.conf
 vendor/etc/init/android.hardware.gnss@1.0-service-qti.rc
-vendor/etc/izat.conf|5d8303c69cc96333f33be577d1a8e5f9a03db92c
-vendor/etc/sap.conf
+vendor/lib/hw/android.hardware.gnss@1.0-impl-qti.so
+vendor/lib/libflp.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/liblocation_api.so
+vendor/lib/libloc_api_v02.so
+vendor/lib/libloc_core.so
+vendor/lib/libloc_ds_api.so
+vendor/lib/libloc_pla.so
+vendor/lib/libloc_stub.so
+vendor/lib/liblowi_client.so
+vendor/lib/liblowi_wifihal.so
 vendor/lib64/hw/android.hardware.gnss@1.0-impl-qti.so
 vendor/lib64/libflp.so
 vendor/lib64/libgeofence.so
-vendor/lib64/libgnss.so
-vendor/lib64/libgps.utils.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
+vendor/lib64/liblocation_api.so
 vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_core.so
 vendor/lib64/libloc_ds_api.so
 vendor/lib64/libloc_pla.so
 vendor/lib64/libloc_stub.so
-vendor/lib64/liblocation_api.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal.so
+
+# GPS-Hardware
+vendor/lib/libgnss.so
+vendor/lib/libgps.utils.so
+vendor/lib64/libgnss.so
+vendor/lib64/libgps.utils.so
 
 # Graphics - Adreno
 vendor/firmware/a530v1_pfp.fw
