@@ -177,6 +177,13 @@ PRODUCT_PACKAGES += \
 # Gapps
 $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
 
+# GPS
+PRODUCT_COPY_FILES += \
+    device/essential/mata/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    device/essential/mata/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    device/essential/mata/configs/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
+    device/essential/mata/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
