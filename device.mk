@@ -184,11 +184,6 @@ PRODUCT_COPY_FILES += \
     device/essential/mata/configs/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
     device/essential/mata/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf
 
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
-
 # IMS
 PRODUCT_PACKAGES += \
     libbase_shim
