@@ -1,0 +1,27 @@
+[
+  {
+    "repository":  "AICP/proprietary_vendor_essential",
+    "target_path": "vendor/essential",
+    "branch":      "p9.0"
+  },
+  {
+    "repository":  "AICP/kernel_essential_msm8998",
+    "target_path": "kernel/essential/msm8998",
+    "branch":      "p9.0"
+  },
+  {
+    "repository":  "LineageOS/android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch":      "lineage-16.0"
+  },
+  {
+    "repository":  "kdrag0n/aarch64-elf-gcc",
+    "target_path": "prebuilts/gcc/linux-x86/aarch64/gcc-9",
+    "branch":      "9.x"
+  },
+  {
+    "repository":  "kdrag0n/arm-eabi-gcc",
+    "target_path": "prebuilts/gcc/linux-x86/arm/gcc-9",
+    "branch":      "9.x"
+  }
+]

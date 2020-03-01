@@ -149,6 +149,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.2-service.clearkey \
     move_widevine_data.sh
 
+# Exclude TOF sensor from InputManager
+PRODUCT_COPY_FILES += \
+    device/essential/mata/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1
@@ -164,10 +168,6 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.mata
-
-# HDR
-PRODUCT_COPY_FILES += \
-    device/essential/mata/configs/hdr_tm_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hdr_tm_config.xml
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -210,11 +210,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.mata
 
-# LiveDisplay native
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm \
-    vendor.lineage.livedisplay@2.0-service-sysfs
-
 # Media
 PRODUCT_COPY_FILES += \
     device/essential/mata/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
@@ -249,11 +244,14 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
+    libmm-omxcore \
     libstagefrighthw
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    device/essential/mata/configs/privapp-permissions-mata.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mata.xml \
+    device/essential/mata/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    device/essential/mata/configs/permissions/privapp-permissions-mata.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mata.xml \
+    device/essential/mata/configs/permissions/privapp-permissions-misc.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-misc.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -365,10 +363,6 @@ PRODUCT_PACKAGES += \
 # Tracing
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service.pixel
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # Update engine
 PRODUCT_PACKAGES += \

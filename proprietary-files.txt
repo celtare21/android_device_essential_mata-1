@@ -641,6 +641,10 @@ vendor/lib64/libvpplibrary.so
 # NFC
 vendor/lib/libpn548ad_fw.so
 
+# Perf
+vendor/lib/libqti-perfd-client.so|16816cfdc873a2fdc9467db52bd5f2aaa33d2b50
+vendor/lib64/libqti-perfd-client.so|93c3f90f1b72a21ca325cbb375923b1deba80467
+
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
@@ -716,6 +720,7 @@ vendor/lib/libmdmdetect.so
 vendor/lib/libpdmapper.so
 vendor/lib/libpdnotifier.so
 vendor/lib/libqmiservices.so
+vendor/lib/libril-qc-qmi-1.so
 vendor/lib/vendor.qti.hardware.radio.am@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.lpa@1.0_vendor.so

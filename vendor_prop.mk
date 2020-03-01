@@ -44,6 +44,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.expose.aux=1 \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.essential.klik \
+    persist.camera.is_type=5 \
+    persist.camera.eis.enable=1 \
     persist.camera.max.previewfps=60 \
     vidc.enc.dcvs.extra-buff-count=2
 
@@ -65,13 +68,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/1da4000.ufshc/by-name/frp
 
-# HDR
+# IMS
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=0 \
+    persist.data.iwlan.enable=true \
+    persist.dbg.wfc_avail_ovr=1
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
+
+# Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.vendor.extension_library=libqti-perfd-client.so
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -129,3 +139,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+
+# NavBar
+PRODUCT_PROPERTY_OVERRIDES += \
+    qemu.hw.mainkeys=0

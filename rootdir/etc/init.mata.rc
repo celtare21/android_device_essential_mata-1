@@ -181,6 +181,12 @@ on init
     write /dev/stune/top-app/schedtune.boost 10
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
+    # blkio init setting
+    write /dev/blkio/blkio.weight 1000
+    write /dev/blkio/background/blkio.weight 1000
+    write /dev/blkio/blkio.group_idle 0
+    write /dev/blkio/background/blkio.group_idle 0
+
     # disable thermal hotplug for configuration
     write /sys/module/msm_thermal/core_control/enabled 0
 
@@ -224,6 +230,7 @@ on init
     # ZRAM setup
     write /sys/block/zram0/comp_algorithm lz4
     write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 100
 
     # create necessary cpusets
     mkdir /dev/cpuset/camera-daemon 0750 cameraserver cameraserver
@@ -297,6 +304,12 @@ on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
     write /sys/devices/virtual/graphics/fb0/idle_time 100
+
+    # Disable sched autogroup
+    write /proc/sys/kernel/sched_autogroup_enabled 0
+
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
 
     # Wait qseecomd started
     wait_for_prop vendor.sys.listeners.registered true
@@ -525,7 +538,7 @@ on boot
 
     # Assign TCP buffer thresholds to be ceiling value of technology maximums
     # Increased technology maximums should be reflected here.
-    write /proc/sys/net/core/rmem_max  8388608
+    write /proc/sys/net/core/rmem_max 16777216
     write /proc/sys/net/core/wmem_max  8388608
 
     # To prevent out of order acknowledgements from making
@@ -672,7 +685,8 @@ on property:ro.boot.carrier.sku=*
     setprop ro.oem.key1 ${ro.boot.carrier.sku}
 
 on property:sys.boot_completed=1
-    setprop sys.io.scheduler bfq
+    # Set the default IRQ affinity to the silver cluster.
+    write /proc/irq/default_smp_affinity f
 
     # Enable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
@@ -683,11 +697,24 @@ on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.mata
 
     write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/foreground/cpus 0-3,6-7
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-3
-    write /dev/cpuset/camera-daemon/cpus 0-3
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/restricted/cpus 0-3
 
     write /dev/kmsg "Boot completed"
+
+    # Setup final blkio
+    # value for group_idle is us
+    write /dev/blkio/blkio.weight 1000
+    write /dev/blkio/background/blkio.weight 10
+    write /dev/blkio/blkio.group_idle 2000
+    write /dev/blkio/background/blkio.group_idle 0
+
+    # Block layer tuning: discard chunk size up to 128MB
+    # Otherwise, contiguous discards can be merged
+    write /sys/block/sda/queue/discard_max_bytes 134217728
 
     # Reset read ahead for dm-0 and dm-1 to 512kb
     write /sys/block/dm-0/queue/read_ahead_kb 512
@@ -952,7 +979,7 @@ on property:dev.bootcomplete=1 && property:ro.runtime.firstboot=*
     write /sys/class/sidecar/enable_control 1
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 -dd \
+    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
     -g@android:vendor_wpa_wlan0
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.1::ISupplicant default

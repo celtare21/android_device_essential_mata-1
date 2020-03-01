@@ -22,6 +22,7 @@ TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a73
+TARGET_CPU_VARIANT_RUNTIME := cortex-a73
 TARGET_CPU_SMP := true
 
 TARGET_2ND_ARCH := arm
@@ -29,6 +30,7 @@ TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOOTLOADER_BOARD_NAME := Mata
@@ -37,6 +39,10 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
 TARGET_HAS_NO_SELECT_BUTTON := true
 
 TARGET_USES_64_BIT_BINDER := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PHONY_TARGETS := true
 
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
@@ -122,10 +128,24 @@ TARGET_USES_GRALLOC1 := true
 TARGET_DISPLAY_SHIFT_HORIZONTAL := 64
 VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
-TARGET_HAS_HDR_DISPLAY := true
+TARGET_HAS_HDR_DISPLAY := false
+TARGET_HAS_WIDE_COLOR_DISPLAY := false
+TARGET_USES_COLOR_METADATA := true
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
+
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifeq ($(WITH_DEXPREOPT),)
+    WITH_DEXPREOPT := true
+    WITH_DEXPREOPT_PIC := true
+    ifneq ($(TARGET_BUILD_VARIANT),user)
+      # Retain classes.dex in APK's for non-user builds
+      DEX_PREOPT_DEFAULT := nostripping
+    endif
+  endif
+endif
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
@@ -138,7 +158,7 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=mata user_debug=31 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := androidboot.hardware=mata ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
@@ -149,14 +169,12 @@ BOARD_KERNEL_TAGS_OFFSET := 0x02000000
 BOARD_RAMDISK_OFFSET := 0x02200000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/essential/msm8998
-TARGET_KERNEL_CONFIG := lineageos_mata_defconfig
-TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CONFIG := artemis_mata_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
+KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/gcc-9/bin
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
-
-# LLVM
-TARGET_USE_SDCLANG := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 536870912 # 500MB
@@ -172,6 +190,11 @@ TARGET_NO_RECOVERY := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MKE2FS := true
+
+BOARD_SUPPRESS_SECURE_ERASE := true
+
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mata
